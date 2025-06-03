@@ -39,6 +39,7 @@ public class Lwjgl3Launcher {
         configuration.setWindowedMode(640, 480);
         configuration.setInitialBackgroundColor(verde);
 
+
         //// You can change these files; they are in lwjgl3/src/main/resources/ .
         //// They can also be loaded from the root of assets/ .
         configuration.setWindowIcon("libgdx128.png", "libgdx64.png", "libgdx32.png", "libgdx16.png");
