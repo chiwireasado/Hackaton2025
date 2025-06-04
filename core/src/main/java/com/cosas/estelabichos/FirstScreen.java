@@ -1,9 +1,15 @@
 package com.cosas.estelabichos;
 
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.ScreenUtils;
 
 /** First screen of the application. Displayed after the application is created. */
-public class FirstScreen implements Screen {
+public class firstScreen implements Screen {
+
+
+
     @Override
     public void show() {
         // Prepare your screen here.

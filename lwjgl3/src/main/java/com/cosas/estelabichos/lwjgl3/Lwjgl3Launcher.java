@@ -18,7 +18,7 @@ public class Lwjgl3Launcher {
     }
 
 
-    static Color verde=new Color(Color.rgb565(155,203,50));
+    static Color verde=new Color(Color.rgb565(0,4,50));
 
     private static Lwjgl3Application createApplication() {
         return new Lwjgl3Application(new Main(), getDefaultConfiguration());
@@ -39,6 +39,7 @@ public class Lwjgl3Launcher {
 
         configuration.setWindowedMode(640, 480);
         configuration.setInitialBackgroundColor(verde);
+
 
         //// You can change these files; they are in lwjgl3/src/main/resources/ .
         //// They can also be loaded from the root of assets/ .
