@@ -11,6 +11,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 
+import java.sql.Array;
+
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends Game {
 
@@ -19,6 +21,7 @@ public class Main extends Game {
     Camera camara;
     static final int world_width=550;
     static final int world_height=400;
+
 
     public void movimiento(){
         float speed=50;
@@ -48,13 +51,17 @@ public class Main extends Game {
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
         camara= new OrthographicCamera(30, 30 * (h / w));
-        cosa=new Sprite(new Texture("bicho.png"));
+
+        cosa=new Sprite(new Texture("caracol.png"));
         cosa.setSize(50,50);
         cosa.setPosition(150,150);
 
         camara.update();
         batch=new SpriteBatch();
         movimiento();
+
+
+
     }
 
     @Override
