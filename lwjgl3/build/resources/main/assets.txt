@@ -1,3 +1,4 @@
 .gitkeep
 background.png
 caracol.png
+fondo.png

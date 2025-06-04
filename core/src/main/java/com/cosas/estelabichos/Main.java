@@ -19,8 +19,8 @@ public class Main extends Game {
     SpriteBatch batch;
     Sprite cosa,fondo;
     Camera camara;
-    static final int world_width= 650;
-    static final int world_height= 500;
+    static final int world_width= 550;
+    static final int world_height= 400;
 
 
     public void movimiento(){
@@ -45,8 +45,8 @@ public class Main extends Game {
     @Override
     public void create() {
         setScreen(new firstScreen());
-        fondo=new Sprite(new Texture(Gdx.files.internal("background.png")));
-        fondo.setPosition(0,0);
+        fondo=new Sprite(new Texture(Gdx.files.internal("fondo.png")));
+        fondo.setPosition(45,45);
         fondo.setSize(world_width,world_height);
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
@@ -74,6 +74,7 @@ public class Main extends Game {
 
         batch.begin();
         fondo.draw(batch);
+
         cosa.draw(batch);
         batch.end();
 
