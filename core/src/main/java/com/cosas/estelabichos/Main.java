@@ -19,12 +19,12 @@ public class Main extends Game {
     SpriteBatch batch;
     Sprite cosa,fondo;
     Camera camara;
-    static final int world_width=550;
-    static final int world_height=400;
+    static final int world_width= 650;
+    static final int world_height= 500;
 
 
     public void movimiento(){
-        float speed=50;
+        float speed=20;
         float delta= Gdx.graphics.getDeltaTime();
 
         if (Gdx.input.isKeyPressed(Input.Keys.W)){
@@ -45,7 +45,7 @@ public class Main extends Game {
     @Override
     public void create() {
         setScreen(new firstScreen());
-        fondo=new Sprite(new Texture(Gdx.files.internal("bicho.png")));
+        fondo=new Sprite(new Texture(Gdx.files.internal("background.png")));
         fondo.setPosition(0,0);
         fondo.setSize(world_width,world_height);
         float w = Gdx.graphics.getWidth();
@@ -53,8 +53,8 @@ public class Main extends Game {
         camara= new OrthographicCamera(30, 30 * (h / w));
 
         cosa=new Sprite(new Texture("caracol.png"));
-        cosa.setSize(50,50);
-        cosa.setPosition(150,150);
+        cosa.setSize(100,100);
+        cosa.setPosition(0,0);
 
         camara.update();
         batch=new SpriteBatch();
