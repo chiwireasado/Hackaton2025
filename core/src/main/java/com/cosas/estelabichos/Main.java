@@ -17,8 +17,8 @@ public class Main extends Game {
     SpriteBatch batch;
     Sprite cosa,fondo;
     Camera camara;
-    static final int world_width= 650;
-    static final int world_height= 500;
+    static final int world_width= 550;
+    static final int world_height= 400;
 
     public void movimiento(){
         float speed= 20;
@@ -42,15 +42,16 @@ public class Main extends Game {
     @Override
     public void create() {
         setScreen(new firstScreen());
-        fondo=new Sprite(new Texture(Gdx.files.internal("fondoPartida")));
-        fondo.setPosition(0,0);
+        fondo=new Sprite(new Texture(Gdx.files.internal("fondoPartida.png")));
+
+        fondo.setPosition(45,45);
         fondo.setSize(world_width,world_height);
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
         camara= new OrthographicCamera(30, 30 * (h / w));
 
         cosa=new Sprite(new Texture("caracol.png"));
-        cosa.setSize(50,50);
+        cosa.setSize(70,70);
         cosa.setPosition(150,150);
 
         camara.update();
