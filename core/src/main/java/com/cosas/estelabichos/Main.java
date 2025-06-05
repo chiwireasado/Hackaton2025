@@ -42,7 +42,7 @@ public class Main extends Game {
     @Override
     public void create() {
         setScreen(new firstScreen());
-        fondo=new Sprite(new Texture(Gdx.files.internal("background.png")));
+        fondo=new Sprite(new Texture(Gdx.files.internal("")));
         fondo.setPosition(0,0);
         fondo.setSize(world_width,world_height);
         float w = Gdx.graphics.getWidth();
