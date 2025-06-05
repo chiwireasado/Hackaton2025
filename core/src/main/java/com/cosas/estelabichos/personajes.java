@@ -19,7 +19,5 @@ public class personajes {
         forma = new Sprite(piel);
     }
 
-    public void movimiento() {
-    }
 
 }

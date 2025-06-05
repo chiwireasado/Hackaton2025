@@ -17,8 +17,8 @@ import java.sql.Array;
 public class Main extends Game {
 
     SpriteBatch batch;
-    Sprite cosa,fondo;
-    Camera camara;
+    Sprite caracol, partida;
+    Camera pointOfView;
     static final int world_width= 550;
     static final int world_height= 400;
 
@@ -28,16 +28,16 @@ public class Main extends Game {
         float delta= Gdx.graphics.getDeltaTime();
 
         if (Gdx.input.isKeyPressed(Input.Keys.W)){
-            cosa.translateY(speed*delta);
+            caracol.translateY(speed*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-            cosa.translateY(-speed*delta);
+            caracol.translateY(-speed*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.A)){
-            cosa.translateX(-speed*delta);
+            caracol.translateX(-speed*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-            cosa.translateX(speed*delta);
+            caracol.translateX(speed*delta);
         }
     }
 
@@ -45,18 +45,20 @@ public class Main extends Game {
     @Override
     public void create() {
         setScreen(new firstScreen());
-        fondo=new Sprite(new Texture(Gdx.files.internal("fondo.png")));
-        fondo.setPosition(45,45);
-        fondo.setSize(world_width,world_height);
+
+        partida =new Sprite(new Texture(Gdx.files.internal("fondoPartida.png")));
+        partida.setPosition(45,45);
+        partida.setSize(world_width,world_height);
+
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
-        camara= new OrthographicCamera(30, 30 * (h / w));
+        pointOfView = new OrthographicCamera(30, 30 * (h / w));
 
-        cosa=new Sprite(new Texture("caracol.png"));
-        cosa.setSize(100,100);
-        cosa.setPosition(0,0);
+        caracol = new Sprite(new Texture("caracol.png"));
+        caracol.setSize(100,100);
+        caracol.setPosition(0,0);
 
-        camara.update();
+        pointOfView.update();
         batch=new SpriteBatch();
         movimiento();
 
@@ -67,15 +69,15 @@ public class Main extends Game {
     @Override
     public void render() {
         super.render();
-        camara.update();
+        pointOfView.update();
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         movimiento();
 
         batch.begin();
-        fondo.draw(batch);
+        partida.draw(batch);
 
-        cosa.draw(batch);
+        caracol.draw(batch);
         batch.end();
 
     }

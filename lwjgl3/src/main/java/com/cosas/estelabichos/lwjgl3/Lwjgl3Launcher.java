@@ -17,7 +17,7 @@ public class Lwjgl3Launcher {
     }
 
 
-    static Color verde=new Color(Color.rgb565(0,4,50));
+    static Color negro =new Color(Color.rgb565(0,0,0));
 
     private static Lwjgl3Application createApplication() {
         return new Lwjgl3Application(new Main(), getDefaultConfiguration());
@@ -25,7 +25,7 @@ public class Lwjgl3Launcher {
 
     private static Lwjgl3ApplicationConfiguration getDefaultConfiguration() {
         Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
-        configuration.setTitle("juego");
+        configuration.setTitle("bichos");
         //// Vsync limits the frames per second to what your hardware can display, and helps eliminate
         //// screen tearing. This setting doesn't always work on Linux, so the line after is a safeguard.
         configuration.useVsync(true);
@@ -37,7 +37,7 @@ public class Lwjgl3Launcher {
         //// You may also need to configure GPU drivers to fully disable Vsync; this can cause screen tearing.
 
         configuration.setWindowedMode(640, 480);
-        configuration.setInitialBackgroundColor(verde);
+        configuration.setInitialBackgroundColor(negro);
 
 
         //// You can change these files; they are in lwjgl3/src/main/resources/ .
