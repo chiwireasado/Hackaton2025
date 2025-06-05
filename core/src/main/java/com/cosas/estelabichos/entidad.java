@@ -2,6 +2,7 @@ package com.cosas.estelabichos;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 
 public class entidad {
 
@@ -15,6 +16,7 @@ public class entidad {
         this.cordX = cordX;
         this.cordY = cordY;
         forma = new Sprite(piel);
+
     }
 
     public void movimiento() {

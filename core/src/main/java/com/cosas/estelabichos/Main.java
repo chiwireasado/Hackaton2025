@@ -13,36 +13,42 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
+import java.rmi.dgc.DGC;
+
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends Game {
 
 
     Array<Sprite> enemigos;
+
     SpriteBatch batch;
-    Sprite cosa,fondo,enemigo;
-    Rectangle hitBXprota,hitBXenemigo;
+    Sprite prota,fondo,enemigo,aura;
+    Rectangle hitBXprota,hitBXenemigo,hbxaura;
+
 
     Camera camara;
-    static final int world_width= 550;
-    static final int world_height= 400;
+    static final int world_width= 600;
+    static final int world_height= 440;
 
-
+    public void movimiento_enemigo(){
+        enemigo.translate(1,1);
+    }
 
     public void movimiento_personaje(){
-        float speed=20;
+        float speed=100;
         float delta= Gdx.graphics.getDeltaTime();
 
         if (Gdx.input.isKeyPressed(Input.Keys.W)){
-            cosa.translateY(14);
+            prota.translateY(speed*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-            cosa.translateY(-14);
+            prota.translateY(-speed*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.A)){
-            cosa.translateX(-14);
+            prota.translateX(-speed*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-            cosa.translateX(14);
+            prota.translateX(speed*delta);
         }
     }
 
@@ -54,25 +60,30 @@ public class Main extends Game {
         // multiples enemigos
         enemigos=new Array<>(5);
 
+
+        aura=new Sprite(new Texture(Gdx.files.internal("bicho.png")));
+        hbxaura=new Rectangle();
+
         //cofiguracionese del fondo
         fondo=new Sprite(new Texture(Gdx.files.internal("fondo.png")));
-        fondo.setPosition(45,45);
+        fondo.setPosition(20,20);
         fondo.setSize(world_width,world_height);
+
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
         camara= new OrthographicCamera(30, 30 * (h / w));
 
         //todo sobre el personaje principal
-        cosa=new Sprite(new Texture("caracol.png"));
-        cosa.setSize(100,100);
-        cosa.setPosition(0,0);
+        prota =new Sprite(new Texture("caracol.png"));
+        prota.setSize(50,50);
+        prota.setPosition(0,0);
 
 
         // todo sobre el enemigo
         enemigo=new Sprite(new Texture(Gdx.files.internal( "bicho.png")));
         enemigo.setSize(50,50);
-        float ranX=MathUtils.random(0,world_width-enemigo.getWidth());
-        float ranY=MathUtils.random(0,world_height-enemigo.getHeight());
+        float ranX=MathUtils.random(0,fondo.getWidth()-enemigo.getWidth());
+        float ranY=MathUtils.random(0,fondo.getHeight()-enemigo.getHeight());
         enemigo.setPosition(ranX,ranY);
 
 
@@ -83,8 +94,6 @@ public class Main extends Game {
 
         camara.update();
         batch=new SpriteBatch();
-        movimiento_personaje();
-
 
 
     }
@@ -97,20 +106,36 @@ public class Main extends Game {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         movimiento_personaje();
 
-        hitBXprota.set(cosa.getX(),cosa.getY(),cosa.getWidth()/2,cosa.getHeight()/2);
+        //hitbox's
+        hitBXprota.set(prota.getX(), prota.getY(), prota.getWidth()/2, prota.getHeight()/2);
         hitBXenemigo.set(enemigo.getX(),enemigo.getY(),enemigo.getWidth()/2,enemigo.getHeight()/2);
+
 
 
         if (hitBXprota.overlaps(hitBXenemigo)) {
             System.out.println("choco");
+            //prota.setPosition((prota.getX()-prota.getWidth()/2),(prota.getY()-prota.getHeight()/2));
+            prota.setPosition(-20,150);
         }
 
+
+
+        if(Gdx.input.isKeyJustPressed(Input.Keys.P)){
+            System.out.println("Prota X: "+(prota.getX()-prota.getWidth())+"---Y: "+(prota.getY()-prota.getHeight()+""));
+        }
+
+        movimiento_enemigo();
+
+
+
+
+
+        //dibujar
         batch.begin();
         fondo.draw(batch);
-        cosa.draw(batch);
+        prota.draw(batch);
 
         enemigo.draw(batch);
-
 
         batch.end();
 
