@@ -1,0 +1,5 @@
+.gitkeep
+background.png
+bicho.png
+caracol.png
+fondo.png
