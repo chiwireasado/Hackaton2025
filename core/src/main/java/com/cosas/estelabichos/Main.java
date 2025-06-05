@@ -42,14 +42,14 @@ public class Main extends Game {
     @Override
     public void create() {
         setScreen(new firstScreen());
-        fondo=new Sprite(new Texture(Gdx.files.internal("")));
+        fondo=new Sprite(new Texture(Gdx.files.internal("fondoPartida")));
         fondo.setPosition(0,0);
         fondo.setSize(world_width,world_height);
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
         camara= new OrthographicCamera(30, 30 * (h / w));
 
-        cosa=new Sprite(new Texture("background.png"));
+        cosa=new Sprite(new Texture("caracol.png"));
         cosa.setSize(50,50);
         cosa.setPosition(150,150);
 
