@@ -46,20 +46,20 @@ public class Main extends Game {
     }
 
     public void movimiento_personaje(){
-        float speed=100;
+        float speed=500;
         float delta= Gdx.graphics.getDeltaTime();
 
         if (Gdx.input.isKeyPressed(Input.Keys.W)){
-            prota.translateY(speed);
+            prota.translateY(speed*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-            prota.translateY(-speed);
+            prota.translateY(-speed*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.A)){
-            prota.translateX(-speed);
+            prota.translateX(-speed*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-            prota.translateX(speed);
+            prota.translateX(speed*delta);
         }
 
         prota.setX(MathUtils.clamp(prota.getX(),0,world_width));
