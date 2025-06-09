@@ -37,68 +37,87 @@ public class Main extends Game {
     static final int world_width= 600;
     static final int world_height= 440;
 
+
     public void movimiento_enemigo() {
         float delta = Gdx.graphics.getDeltaTime();
-        enemigo.translate(ranX * delta, ranY * delta);
         enemigo.setX(MathUtils.clamp(enemigo.getX(),0,world_width-hitBXenemigo.getWidth()));
         enemigo.setY(MathUtils.clamp(enemigo.getY(),0,world_height-hitBXenemigo.getHeight()));
+
+        if (hitBXenemigo.getX()<=0 || enemigo.getX()>=world_width-hitBXenemigo.getWidth()){
+            ranX=-ranX-45;
+        }
+        if (hitBXenemigo.getY()<=0 || enemigo.getY()>=world_height-hitBXenemigo.getHeight()){
+            ranY=-ranY-45;
+        }
+
+        enemigo.translate(ranX*delta, ranY* delta);
 
     }
 
     public void movimiento_personaje(){
-        float speed=100;
+        float speedX=0;
+        float speedY=0;
         float delta= Gdx.graphics.getDeltaTime();
 
         if (Gdx.input.isKeyPressed(Input.Keys.W)){
-            prota.translateY(speed);
+            speedY=250;
+            speedX=0;
+            prota.translate(speedX * delta,speedY*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.S)){
-            prota.translateY(-speed);
+            speedY=-250;
+            prota.translate(speedX * delta,speedY*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.A)){
-            prota.translateX(-speed);
+            speedX=-250;
+            prota.translate(speedX * delta,speedY*delta);
         }
         else if (Gdx.input.isKeyPressed(Input.Keys.D)){
-            prota.translateX(speed);
+            speedX=250;
+            prota.translate(speedX * delta,speedY*delta);
+        }
+
+        prota.translate(speedX * delta,speedY*delta);
+
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.D)){
+            prota.flip(true,false);
+        }else if (Gdx.input.isKeyJustPressed(Input.Keys.A)){
+            prota.flip(true,false);
         }
 
         prota.setX(MathUtils.clamp(prota.getX(),0,world_width));
         prota.setY(MathUtils.clamp(prota.getY(),0,world_height));
 
-        if (prota.getX()>=world_width){
-            System.out.println("tocamos X");
-        }
-        if (prota.getY()>=world_height){
-            System.out.println("tocamos Y");
-        }
-
-        if (prota.getY()<=(-world_height)){
-            System.out.println("tocamos -Y");
-        }
-
-        if (prota.getX()<=(-world_width)){
-            System.out.println("tocamos -X");
-        }
-
     }
 
+    public void crea_aura(){
+        // cracion aura
+        aura=new Sprite(new Texture(Gdx.files.internal("background.png")));
+        aura.setSize(10,10);
+        aura.setPosition((hitBXprota.getX()+hitBXprota.getWidth()),(hitBXprota.getY()+hitBXprota.getHeight()));
+        hbxaura=new Rectangle();
+        hbxaura.set(aura.getX(),aura.getY(),aura.getWidth(),aura.getHeight());
 
+        auras.add(aura);
+
+    }
 
     @Override
     public void create() {
         setScreen(new firstScreen());
 
+
         // multiples enemigos
         enemigos=new Array<>(5);
+        auras=new Array<>();
 
-        // cracion aura
-        aura=new Sprite(new Texture(Gdx.files.internal("bicho.png")));
-        hbxaura=new Rectangle();
 
         //cofiguracionese del fondo
         fondo=new Sprite(new Texture(Gdx.files.internal("fondo.png")));
         fondo.setPosition(20,20);
         fondo.setSize(world_width,world_height);
+
 
         // cosas aun no usadas
         float w = Gdx.graphics.getWidth();
@@ -118,10 +137,12 @@ public class Main extends Game {
         ranY=MathUtils.random(0,fondo.getHeight()-enemigo.getHeight());
         enemigo.setPosition(ranX,ranY);
 
-
         //hitbox's iniciadas
         hitBXprota=new Rectangle();
         hitBXenemigo=new Rectangle();
+
+
+        crea_aura();
 
 
         camara.update();
@@ -135,7 +156,6 @@ public class Main extends Game {
     public void render() {
         super.render();
         camara.update();
-
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // movimientos
@@ -145,7 +165,7 @@ public class Main extends Game {
 
         //hitbox's configuracion
         hitBXprota.set(prota.getX(), prota.getY(), prota.getWidth()/2, prota.getHeight()/2);
-        hitBXenemigo.set(enemigo.getX(),enemigo.getY(),enemigo.getWidth()/2,enemigo.getHeight()/2);
+        hitBXenemigo.set(enemigo.getX(),enemigo.getY(),enemigo.getWidth()-15,enemigo.getHeight()-15);
 
 
         // colision
@@ -155,20 +175,43 @@ public class Main extends Game {
             prota.setPosition(-20,150);
         }
 
-
-        if(Gdx.input.isKeyJustPressed(Input.Keys.P)){
-            System.out.println("Prota X: "+(prota.getX()-prota.getWidth())+"---Y: "+(prota.getY()-prota.getHeight()+""));
+        if (hitBXenemigo.overlaps(hbxaura)){
+            auras.clear();
+            prota.setPosition(-20,150);
         }
 
 
 
+        crea_aura();
+
+        for (int i =auras.size-1; i>=0; i--) {
+            Sprite aura=auras.get(i);
 
 
+        }
+
+
+
+        if (prota.getX()<=0 || prota.getX()>=fondo.getWidth()-10){
+            auras.clear();
+        }
+        if (prota.getY()<0 || prota.getY()>= fondo.getHeight()-10){
+            auras.clear();
+        }
+
+
+
+        
         //dibujar
         batch.begin();
         fondo.draw(batch);
         prota.draw(batch);
         enemigo.draw(batch);
+
+        for (Sprite aura: auras){
+            aura.draw(batch);
+        }
+
         batch.end();
 
     }
