@@ -9,39 +9,81 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.math.*;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.viewport.Viewport;
-
-import java.rmi.dgc.DGC;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends Game {
 
+    int [][]mapa ={ // mapa de 16x16 en pixeles
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+    };
 
     Array<Sprite> enemigos;
     Array<Sprite> auras;
 
 
+    Texture pared,piso;
+
+
     SpriteBatch batch;
-    Sprite prota,fondo,enemigo,aura;
+    Sprite prota,enemigo,aura;
     Rectangle hitBXprota,hitBXenemigo,hbxaura;
 
 
+    Camera camara;
     static float ranX;
     static float ranY;
-    Camera camara;
     static final int world_width= 600;
     static final int world_height= 440;
 
 
+    final int pixeles =16;
+
+
     public void movimiento_enemigo() {
         float delta = Gdx.graphics.getDeltaTime();
-        enemigo.setX(MathUtils.clamp(enemigo.getX(),0,world_width-hitBXenemigo.getWidth()));
-        enemigo.setY(MathUtils.clamp(enemigo.getY(),0,world_height-hitBXenemigo.getHeight()));
+        enemigo.setX(MathUtils.clamp(enemigo.getX(),hitBXenemigo.getWidth()-10,world_width-hitBXenemigo.getWidth()));
+        enemigo.setY(MathUtils.clamp(enemigo.getY(),hitBXenemigo.getHeight()-10,world_height-hitBXenemigo.getHeight()));
 
         if (hitBXenemigo.getX()<=0 || enemigo.getX()>=world_width-hitBXenemigo.getWidth()){
             ranX=-ranX-45;
@@ -49,7 +91,6 @@ public class Main extends Game {
         if (hitBXenemigo.getY()<=0 || enemigo.getY()>=world_height-hitBXenemigo.getHeight()){
             ranY=-ranY-45;
         }
-
         enemigo.translate(ranX*delta, ranY* delta);
 
     }
@@ -86,8 +127,8 @@ public class Main extends Game {
             prota.flip(true,false);
         }
 
-        prota.setX(MathUtils.clamp(prota.getX(),0,world_width));
-        prota.setY(MathUtils.clamp(prota.getY(),0,world_height));
+        prota.setX(MathUtils.clamp(prota.getX(),-10,world_width));
+        prota.setY(MathUtils.clamp(prota.getY(),-10,world_height));
 
     }
 
@@ -113,13 +154,7 @@ public class Main extends Game {
         auras=new Array<>();
 
 
-        //cofiguracionese del fondo
-        fondo=new Sprite(new Texture(Gdx.files.internal("fondo.png")));
-        fondo.setPosition(20,20);
-        fondo.setSize(world_width,world_height);
-
-
-        // cosas aun no usadas
+        // si se quita esto exzplota
         float w = Gdx.graphics.getWidth();
         float h = Gdx.graphics.getHeight();
         camara= new OrthographicCamera(30, 30 * (h / w));
@@ -133,8 +168,8 @@ public class Main extends Game {
         // todo sobre el enemigo
         enemigo=new Sprite(new Texture(Gdx.files.internal( "bicho.png")));
         enemigo.setSize(50,50);
-        ranX=MathUtils.random(0,fondo.getWidth()-enemigo.getWidth());
-        ranY=MathUtils.random(0,fondo.getHeight()-enemigo.getHeight());
+        ranX=MathUtils.random(0,world_width-enemigo.getWidth());
+        ranY=MathUtils.random(0,world_height-enemigo.getHeight());
         enemigo.setPosition(ranX,ranY);
 
         //hitbox's iniciadas
@@ -143,6 +178,10 @@ public class Main extends Game {
 
 
         crea_aura();
+
+
+        piso=new Texture(Gdx.files.internal("fondo.png"));
+        pared=new Texture(Gdx.files.internal("background.png"));
 
 
         camara.update();
@@ -157,6 +196,7 @@ public class Main extends Game {
         super.render();
         camara.update();
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
 
         // movimientos
         movimiento_personaje();
@@ -192,10 +232,10 @@ public class Main extends Game {
 
 
 
-        if (prota.getX()<=0 || prota.getX()>=fondo.getWidth()-10){
+        if (prota.getX()<=0 || prota.getX()>=world_width-10){
             auras.clear();
         }
-        if (prota.getY()<0 || prota.getY()>= fondo.getHeight()-10){
+        if (prota.getY()<0 || prota.getY()>= world_height-10){
             auras.clear();
         }
 
@@ -204,7 +244,21 @@ public class Main extends Game {
         
         //dibujar
         batch.begin();
-        fondo.draw(batch);
+
+        for (int i = 0; i < mapa.length; i++) {
+            for (int j = 0; j <mapa[i].length; j++) {
+
+                if (mapa[i][j]==1){
+                    batch.draw(pared,i* pixeles,j* pixeles);
+                }
+                else {
+                    batch.draw(piso,i* pixeles,j* pixeles);
+                }
+
+            }
+        }
+
+
         prota.draw(batch);
         enemigo.draw(batch);
 
@@ -212,14 +266,21 @@ public class Main extends Game {
             aura.draw(batch);
         }
 
+
+
+
         batch.end();
 
     }
+
+
 
     @Override
     public void dispose() {
         super.dispose();
         batch.dispose();
+        piso.dispose();
+        pared.dispose();
 
     }
 
