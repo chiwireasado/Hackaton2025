@@ -16,7 +16,6 @@ public class Lwjgl3Launcher {
         createApplication();
     }
 
-
     static Color verde=new Color(Color.rgb565(0,4,50));
 
     private static Lwjgl3Application createApplication() {

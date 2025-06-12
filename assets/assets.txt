@@ -3,3 +3,4 @@ background.png
 bicho.png
 caracol.png
 fondo.png
+prueba.png
