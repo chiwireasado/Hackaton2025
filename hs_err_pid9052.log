@@ -1,0 +1,1718 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff9b88644de, pid=9052, tid=6284
+#
+# JRE version: OpenJDK Runtime Environment Temurin-17.0.15+6 (17.0.15+6) (build 17.0.15+6)
+# Java VM: OpenJDK 64-Bit Server VM Temurin-17.0.15+6 (17.0.15+6, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# Problematic frame:
+# C  [msvcrt.dll+0x744de]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/adoptium/adoptium-support/issues
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF-8 -Duser.country=ES -Duser.language=es -Duser.variant com.cosas.estelabichos.lwjgl3.Lwjgl3Launcher
+
+Host: Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz, 4 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.5915)
+Time: Fri Jun 13 11:03:10 2025 Hora de verano romance elapsed time: 9.750363 seconds (0d 0h 0m 9s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000020ca38cbc30):  JavaThread "main" [_thread_in_native, id=6284, stack(0x0000002104b00000,0x0000002104c00000)]
+
+Stack: [0x0000002104b00000,0x0000002104c00000],  sp=0x0000002104bff0c8,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [msvcrt.dll+0x744de]
+C  [gdx64.dll+0x20e6]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J 978  com.badlogic.gdx.utils.BufferUtils.copyJni([FLjava/nio/Buffer;II)V (0 bytes) @ 0x0000020cb2f4b798 [0x0000020cb2f4b720+0x0000000000000078]
+J 1146 c2 com.badlogic.gdx.graphics.g2d.SpriteBatch.flush()V (206 bytes) @ 0x0000020cb2f59bac [0x0000020cb2f59a20+0x000000000000018c]
+J 1039 c2 com.badlogic.gdx.graphics.g2d.SpriteBatch.draw(Lcom/badlogic/gdx/graphics/Texture;FF)V (18 bytes) @ 0x0000020cb2f4db18 [0x0000020cb2f4d960+0x00000000000001b8]
+J 1370 c1 com.cosas.estelabichos.Main.render()V (870 bytes) @ 0x0000020cab68a6c4 [0x0000020cab6896e0+0x0000000000000fe4]
+J 1315 c1 com.badlogic.gdx.backends.lwjgl3.Lwjgl3Window.update()Z (312 bytes) @ 0x0000020cab66c5e4 [0x0000020cab66b1a0+0x0000000000001444]
+j  com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application.loop()V+120
+j  com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application.<init>(Lcom/badlogic/gdx/ApplicationListener;Lcom/badlogic/gdx/backends/lwjgl3/Lwjgl3ApplicationConfiguration;)V+269
+j  com.cosas.estelabichos.lwjgl3.Lwjgl3Launcher.createApplication()Lcom/badlogic/gdx/backends/lwjgl3/Lwjgl3Application;+14
+j  com.cosas.estelabichos.lwjgl3.Lwjgl3Launcher.main([Ljava/lang/String;)V+7
+v  ~StubRoutines::call_stub
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), writing address 0x0000020cc6e90000
+
+
+Registers:
+RAX=0x0000020cc6e8fe30, RBX=0x0000000710a3fe20, RCX=0x0000020cc6e90040, RDX=0xfffffdfa49bafff0
+RSP=0x0000002104bff0c8, RBP=0x0000002104bff1a0, RSI=0x0000000000000140, RDI=0x0000000000000000
+R8 =0x0000000000000030, R9 =0x000000000000000b, R10=0x00007ff96fcb6f80, R11=0x0000000710a40320
+R12=0x0000020ca38cbee8, R13=0x0000020cc6e8fe30, R14=0x0000002104bff160, R15=0x0000020ca38cbc30
+RIP=0x00007ff9b88644de, EFLAGS=0x0000000000010202
+
+XMM[0]=0x4200000000000000 0x3f800000feffffff
+XMM[1]=0x3f8000003f800000 0xfeffffff43200000
+XMM[2]=0x00000000feffffff 0x4340000000000000
+XMM[3]=0xfeffffff43600000 0x000000003f800000
+XMM[4]=0x4360000042000000 0x0000000000000000
+XMM[5]=0x0000000000000000 0x0000000042800000
+XMM[6]=0x0000000000000000 0x0000000000000000
+XMM[7]=0x0000000000000000 0x0000000000000000
+XMM[8]=0x0000000000000000 0x000000003b4ccccd
+XMM[9]=0x0000000000000000 0x0000000000000000
+XMM[10]=0x0000000000000000 0x0000000000000000
+XMM[11]=0x0000000000000000 0x000000003f800000
+XMM[12]=0x0000000000000000 0x0000000000000000
+XMM[13]=0x0000000000000000 0x00000000c0000000
+XMM[14]=0x0000000000000000 0x0000000000000000
+XMM[15]=0x0000000000000000 0x0000000000000000
+  MXCSR=0x00001fa0
+
+
+Register to memory mapping:
+
+RIP=0x00007ff9b88644de msvcrt.dll
+RAX=0x0000020cc6e8fe30 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+RBX=0x0000000710a3fe20 is pointing into object: [F 
+{0x0000000710a3fe10} - klass: {type array float}
+ - length: 20000
+RCX=0x0000020cc6e90040 is an unknown value
+RDX=0xfffffdfa49bafff0 is an unknown value
+RSP=0x0000002104bff0c8 is pointing into the stack for thread: 0x0000020ca38cbc30
+RBP=0x0000002104bff1a0 is pointing into the stack for thread: 0x0000020ca38cbc30
+RSI=0x0000000000000140 is an unknown value
+RDI=0x0 is NULL
+R8 =0x0000000000000030 is an unknown value
+R9 =0x000000000000000b is an unknown value
+R10=0x00007ff96fcb6f80 jvm.dll
+R11=0x0000000710a40320 is pointing into object: [F 
+{0x0000000710a3fe10} - klass: {type array float}
+ - length: 20000
+R12=0x0000020ca38cbee8 points into unknown readable memory: 0x0000020cc640fa80 | 80 fa 40 c6 0c 02 00 00
+R13=0x0000020cc6e8fe30 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+R14=0x0000002104bff160 is pointing into the stack for thread: 0x0000020ca38cbc30
+R15=0x0000020ca38cbc30 is a thread
+
+
+Top of Stack: (sp=0x0000002104bff0c8)
+0x0000002104bff0c8:   000000006e7020e6 0000000000089cf8
+0x0000002104bff0d8:   0000000000000140 0000020d0e3dff40
+0x0000002104bff0e8:   0000000700000000 0000020d0e4f7e88
+0x0000002104bff0f8:   0000000000089cf8 0000000710a04130
+0x0000002104bff108:   0000000000000000 0000000000000000
+0x0000002104bff118:   0000000710a2e9f8 0000002104bff190
+0x0000002104bff128:   0000020cb2f4b838 0000000000000020
+0x0000002104bff138:   0000020cb2f4ac0c 00000000e2142cb7
+0x0000002104bff148:   0000002104bff1a0 0000000000000140
+0x0000002104bff158:   0000000000000000 0000000710a3fe10
+0x0000002104bff168:   0000000710a17fb8 0000000000000162
+0x0000002104bff178:   0000020cb2f64805 000000000000818b
+0x0000002104bff188:   0000002104bff1e0 0000000710a17960
+0x0000002104bff198:   000000000000043a 0000000710a041f0
+0x0000002104bff1a8:   0000020cb2f59bac 0000000710a04130
+0x0000002104bff1b8:   e214083e00000060 0000000700000140
+0x0000002104bff1c8:   0000000710a04210 0000000710a17fb8
+0x0000002104bff1d8:   0000000710a041f0 0000002104bff558
+0x0000002104bff1e8:   0000020cab675ee4 0000020cb2959634
+0x0000002104bff1f8:   0000000000000001 0000000000000000
+0x0000002104bff208:   0000000710a18410 0000000710a04130
+0x0000002104bff218:   0000020cb2f4db18 0000000000000001
+0x0000002104bff228:   0000002104bff228 0000020d08746c4b
+0x0000002104bff238:   0000002104bff288 0000020d087483a8
+0x0000002104bff248:   0000000710a04130 4200000042000000
+0x0000002104bff258:   0000000710a03da8 4200000042000000
+0x0000002104bff268:   00000007e2147fc2 0000002104bff558
+0x0000002104bff278:   0000020cab689f4c 0000002104bff558
+0x0000002104bff288:   0000020cab68a6c4 ffffffffa4010b78
+0x0000002104bff298:   0000020cb2988c4a 00007ff998ea0000
+0x0000002104bff2a8:   00007ff9b83fa333 0000020cc6ce6c00
+0x0000002104bff2b8:   0000000000000110 0000000000000000 
+
+Instructions: (pc=0x00007ff9b88644de)
+0x00007ff9b88643de:   f8 c3 49 83 f8 20 77 5a 0f 10 02 42 0f 10 4c 02
+0x00007ff9b88643ee:   f0 0f 11 01 42 0f 11 4c 01 f0 c3 0f 1f 80 00 00
+0x00007ff9b88643fe:   00 00 4d 85 c0 74 15 48 2b d1 72 16 44 8a 1c 11
+0x00007ff9b886440e:   48 ff c1 49 ff c8 44 88 59 ff 75 f0 c3 0f 1f 44
+0x00007ff9b886441e:   00 00 49 03 c8 44 8a 5c 11 ff 48 ff c9 49 ff c8
+0x00007ff9b886442e:   44 88 19 75 f0 c3 66 66 66 66 0f 1f 84 00 00 00
+0x00007ff9b886443e:   00 00 4e 8d 1c 02 48 2b d1 73 09 4c 3b d9 0f 87
+0x00007ff9b886444e:   6e 01 00 00 0f 10 04 11 48 83 c1 10 f6 c1 0f 74
+0x00007ff9b886445e:   12 48 83 e1 f0 0f 10 0c 11 0f 11 00 0f 28 c1 48
+0x00007ff9b886446e:   83 c1 10 4c 03 c0 4c 2b c1 4d 8b c8 49 c1 e9 06
+0x00007ff9b886447e:   74 6f 49 81 f9 00 10 00 00 0f 87 b3 00 00 00 49
+0x00007ff9b886448e:   83 e0 3f eb 2d 66 66 66 66 66 66 66 0f 1f 84 00
+0x00007ff9b886449e:   00 00 00 00 66 66 66 66 66 66 66 0f 1f 84 00 00
+0x00007ff9b88644ae:   00 00 00 66 66 66 66 66 66 66 0f 1f 84 00 00 00
+0x00007ff9b88644be:   00 00 0f 10 0c 11 0f 10 54 11 10 0f 10 5c 11 20
+0x00007ff9b88644ce:   0f 10 64 11 30 0f 29 41 f0 48 83 c1 40 49 ff c9
+0x00007ff9b88644de:   0f 29 49 c0 0f 29 51 d0 0f 29 59 e0 0f 28 c4 75
+0x00007ff9b88644ee:   d1 4d 8b c8 49 c1 e9 04 74 19 0f 1f 84 00 00 00
+0x00007ff9b88644fe:   00 00 0f 29 41 f0 0f 10 04 11 48 83 c1 10 49 ff
+0x00007ff9b886450e:   c9 75 ef 49 83 e0 0f 74 0e 4e 8d 5c 01 f0 41 0f
+0x00007ff9b886451e:   10 0c 13 41 0f 11 0b 0f 29 41 f0 c3 66 66 66 66
+0x00007ff9b886452e:   66 66 66 0f 1f 84 00 00 00 00 00 0f 1f 80 00 00
+0x00007ff9b886453e:   00 00 4d 8b c8 49 c1 e9 06 49 83 e0 3f 0f 18 44
+0x00007ff9b886454e:   11 40 eb 2e 66 66 66 66 66 66 66 0f 1f 84 00 00
+0x00007ff9b886455e:   00 00 00 66 66 66 66 66 66 66 0f 1f 84 00 00 00
+0x00007ff9b886456e:   00 00 66 66 66 66 66 66 66 0f 1f 84 00 00 00 00
+0x00007ff9b886457e:   00 90 0f 10 0c 11 0f 10 54 11 10 0f 10 5c 11 20
+0x00007ff9b886458e:   0f 10 64 11 30 0f 2b 41 f0 48 83 c1 40 0f 18 44
+0x00007ff9b886459e:   11 40 49 ff c9 0f 2b 49 c0 0f 2b 51 d0 0f 2b 59
+0x00007ff9b88645ae:   e0 0f 28 c4 75 cc 0f ae f8 e9 33 ff ff ff 0f 1f
+0x00007ff9b88645be:   40 00 49 03 c8 0f 10 44 11 f0 48 83 e9 10 49 83
+0x00007ff9b88645ce:   e8 10 f6 c1 0f 74 18 4c 8b d9 48 83 e1 f0 0f 10 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x000000006e7020e6 gdx64.dll
+stack at sp + 1 slots: 564472 is a compressed pointer to class: 0x0000020cc7089cf8
+java.nio.DirectByteBuffer {0x0000020cc7089d00}
+ - instance size:     8
+ - klass size:        159
+ - access:            synchronized 
+ - state:             fully_initialized
+ - name:              'java/nio/DirectByteBuffer'
+ - super:             'java/nio/MappedByteBuffer'
+ - sub:               'java/nio/DirectByteBufferR'   
+ - arrays:            NULL
+ - methods:           Array<T>(0x0000020cc7a7b920)
+ - method ordering:   Array<T>(0x0000020cc7a7b7d0)
+ - local interfaces:  Array<T>(0x0000020cc7a7b910)
+ - trans. interfaces: Array<T>(0x0000020cc7a7b8f8)
+ - constants:         constant pool [552] {0x0000020cc7a773d8} for 'java/nio/DirectByteBuffer' cache=0x0000020cc73b6158
+ - class loader data:  loader data: 0x0000020cc5d2aa80 of 'bootstrap'
+ - source file:       'DirectByteBuffer.java'
+ - class annotations:       Array<T>(0x0000000000000000)
+ - class type annotations:  Array<T>(0x0000000000000000)
+ - field annotations:       Array<T>(0x0000000000000000)
+ - field type annotations:  Array<T>(0x0000000000000000)
+ - inner classes:     Array<T>(0x0000020cc7a7df00)
+ - nest members:     Array<T>(0x0000020cc7a7b7c8)
+ - permitted subclasses:     Array<T>(0x0000020cc75cca08)
+ - java mirror:       a 'java/lang/Class'{0x0000000703404820} = 'java/nio/DirectByteBuffer'
+ - vtable length      90  (start addr: 0x0000020cc7089ec0)
+ - itable length      10 (start addr: 0x0000020cc708a190)
+ - ---- static fields (2 words):
+ - private static final 'ARRAY_BASE_OFFSET' 'J' @112 
+ - protected static final 'UNALIGNED' 'Z' @120 
+ - static final synthetic '$assertionsDisabled' 'Z' @121 
+ - ---- non-static fields (13 words):
+ - private 'mark' 'I' @12 
+ - 'address' 'J' @16 
+ - private 'position' 'I' @24 
+ - private 'limit' 'I' @28 
+ - private 'capacity' 'I' @32 
+ - final 'segment' 'Ljdk/internal/access/foreign/MemorySegmentProxy;' @36 
+ - final 'offset' 'I' @40 
+ - 'isReadOnly' 'Z' @44 
+ - 'bigEndian' 'Z' @45 
+ - 'nativeByteOrder' 'Z' @46 
+ - final 'hb' '[B' @48 
+ - private final 'isSync' 'Z' @47 
+ - private final 'fd' 'Ljava/io/FileDescriptor;' @52 
+ - private final 'att' 'Ljava/lang/Object;' @56 
+ - private final 'cleaner' 'Ljdk/internal/ref/Cleaner;' @60 
+ - non-static oop maps: 36-36 48-60 
+stack at sp + 2 slots: 0x0000000000000140 is an unknown value
+stack at sp + 3 slots: 0x0000020d0e3dff40 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+stack at sp + 4 slots: 0x0000000700000000 is an unknown value
+stack at sp + 5 slots: 0x0000020d0e4f7e88 points into unknown readable memory: 0x0000000000000000 | 00 00 00 00 00 00 00 00
+stack at sp + 6 slots: 564472 is a compressed pointer to class: 0x0000020cc7089cf8
+java.nio.DirectByteBuffer {0x0000020cc7089d00}
+ - instance size:     8
+ - klass size:        159
+ - access:            synchronized 
+ - state:             fully_initialized
+ - name:              'java/nio/DirectByteBuffer'
+ - super:             'java/nio/MappedByteBuffer'
+ - sub:               'java/nio/DirectByteBufferR'   
+ - arrays:            NULL
+ - methods:           Array<T>(0x0000020cc7a7b920)
+ - method ordering:   Array<T>(0x0000020cc7a7b7d0)
+ - local interfaces:  Array<T>(0x0000020cc7a7b910)
+ - trans. interfaces: Array<T>(0x0000020cc7a7b8f8)
+ - constants:         constant pool [552] {0x0000020cc7a773d8} for 'java/nio/DirectByteBuffer' cache=0x0000020cc73b6158
+ - class loader data:  loader data: 0x0000020cc5d2aa80 of 'bootstrap'
+ - source file:       'DirectByteBuffer.java'
+ - class annotations:       Array<T>(0x0000000000000000)
+ - class type annotations:  Array<T>(0x0000000000000000)
+ - field annotations:       Array<T>(0x0000000000000000)
+ - field type annotations:  Array<T>(0x0000000000000000)
+ - inner classes:     Array<T>(0x0000020cc7a7df00)
+ - nest members:     Array<T>(0x0000020cc7a7b7c8)
+ - permitted subclasses:     Array<T>(0x0000020cc75cca08)
+ - java mirror:       a 'java/lang/Class'{0x0000000703404820} = 'java/nio/DirectByteBuffer'
+ - vtable length      90  (start addr: 0x0000020cc7089ec0)
+ - itable length      10 (start addr: 0x0000020cc708a190)
+ - ---- static fields (2 words):
+ - private static final 'ARRAY_BASE_OFFSET' 'J' @112 
+ - protected static final 'UNALIGNED' 'Z' @120 
+ - static final synthetic '$assertionsDisabled' 'Z' @121 
+ - ---- non-static fields (13 words):
+ - private 'mark' 'I' @12 
+ - 'address' 'J' @16 
+ - private 'position' 'I' @24 
+ - private 'limit' 'I' @28 
+ - private 'capacity' 'I' @32 
+ - final 'segment' 'Ljdk/internal/access/foreign/MemorySegmentProxy;' @36 
+ - final 'offset' 'I' @40 
+ - 'isReadOnly' 'Z' @44 
+ - 'bigEndian' 'Z' @45 
+ - 'nativeByteOrder' 'Z' @46 
+ - final 'hb' '[B' @48 
+ - private final 'isSync' 'Z' @47 
+ - private final 'fd' 'Ljava/io/FileDescriptor;' @52 
+ - private final 'att' 'Ljava/lang/Object;' @56 
+ - private final 'cleaner' 'Ljdk/internal/ref/Cleaner;' @60 
+ - non-static oop maps: 36-36 48-60 
+stack at sp + 7 slots: 0x0000000710a04130 is an oop: com.badlogic.gdx.graphics.g2d.SpriteBatch 
+{0x0000000710a04130} - klass: 'com/badlogic/gdx/graphics/g2d/SpriteBatch'
+ - ---- fields (total size 13 words):
+ - 'idx' 'I' @12  320 (140)
+ - 'invTexWidth' 'F' @16  0.031250 (3d000000)
+ - 'invTexHeight' 'F' @20  0.031250 (3d000000)
+ - private 'blendSrcFunc' 'I' @24  770 (302)
+ - private 'blendDstFunc' 'I' @28  771 (303)
+ - private 'blendSrcFuncAlpha' 'I' @32  770 (302)
+ - private 'blendDstFuncAlpha' 'I' @36  771 (303)
+ - 'colorPacked' 'F' @40  -170141173319264429905852091742258462720.000000 (feffffff)
+ - public 'renderCalls' 'I' @44  1
+ - public 'totalRenderCalls' 'I' @48  33947 (849b)
+ - public 'maxSpritesInBatch' 'I' @52  16 (10)
+ - 'drawing' 'Z' @56  true
+ - private 'blendingDisabled' 'Z' @57  false
+ - private 'ownsShader' 'Z' @58  true
+ - private 'currentDataType' 'Lcom/badlogic/gdx/graphics/Mesh$VertexDataType;' @60  a 'com/badlogic/gdx/graphics/Mesh$VertexDataType'{0x0000000710a04198} (e2140833)
+ - private 'mesh' 'Lcom/badlogic/gdx/graphics/Mesh;' @64  a 'com/badlogic/gdx/graphics/Mesh'{0x0000000710a041f0} (e214083e)
+ - final 'vertices' '[F' @68  [F{0x0000000710a3fe10} (e2147fc2)
+ - 'lastTexture' 'Lcom/badlogic/gdx/graphics/Texture;' @72  a 'com/badlogic/gdx/graphics/Texture'{0x0000000710a03ce0} (e214079c)
+ - private final 'transformMatrix' 'Lcom/badlogic/gdx/math/Matrix4;' @76  a 'com/badlogic/gdx/math/Matrix4'{0x0000000710a043f8} (e214087f)
+ - private final 'projectionMatrix' 'Lcom/badlogic/gdx/math/Matrix4;' @80  a 'com/badlogic/gdx/math/Matrix4'{0x0000000710a04458} (e214088b)
+ - private final 'combinedMatrix' 'Lcom/badlogic/gdx/math/Matrix4;' @84  a 'com/badlogic/gdx/math/Matrix4'{0x0000000710a044b8} (e2140897)
+ - private final 'shader' 'Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;' @88  a 'com/badlogic/gdx/graphics/glutils/ShaderProgram'{0x0000000710a18460} (e214308c)
+ - private 'customShader' 'Lcom/badlogic/gdx/graphics/glutils/ShaderProgram;' @92  NULL (0)
+ - private final 'color' 'Lcom/badlogic/gdx/graphics/Color;' @96  a 'com/badlogic/gdx/graphics/Color'{0x0000000710a04518} (e21408a3)
+
+
+Compiled method (n/a)    9871  978     n 0       com.badlogic.gdx.utils.BufferUtils::copyJni (native)
+ total in heap  [0x0000020cb2f4b590,0x0000020cb2f4b978] = 1000
+ relocation     [0x0000020cb2f4b6e8,0x0000020cb2f4b718] = 48
+ main code      [0x0000020cb2f4b720,0x0000020cb2f4b970] = 592
+ oops           [0x0000020cb2f4b970,0x0000020cb2f4b978] = 8
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x0000020d086c17f0} 'copyJni' '([FLjava/nio/Buffer;II)V' in 'com/badlogic/gdx/utils/BufferUtils'
+  # parm0:    rdx:rdx   = '[F'
+  # parm1:    r8:r8     = 'java/nio/Buffer'
+  # parm2:    r9        = int
+  # parm3:    rdi       = int
+  #           [sp+0x80]  (sp of caller)
+  0x0000020cb2f4b720: 448b 5208 | 49bb 0000 | 00c7 0c02 | 0000 4d03 | d349 3bc2 | 0f84 0600 
+
+  0x0000020cb2f4b738: ;   {runtime_call ic_miss_stub}
+  0x0000020cb2f4b738: 0000 e941 | 59a5 ff90 
+[Verified Entry Point]
+  0x0000020cb2f4b740: 8984 2400 | 90ff ff55 | 488b ec48 | 83ec 7048 | 897c 2428 | 4c89 4c24 | 204c 8944 | 2438 4983 
+  0x0000020cb2f4b760: f800 4c8d | 4c24 384c | 0f44 4c24 | 3848 8954 | 2430 4883 | fa00 4c8d | 4424 304c | 0f44 4424 
+  0x0000020cb2f4b780: ;   {oop(a 'java/lang/Class'{0x0000000710a17960} = 'com/badlogic/gdx/utils/BufferUtils')}
+  0x0000020cb2f4b780: 3049 be60 | 79a1 1007 | 0000 004c | 8974 2460 | 4c8d 7424 | 6049 8bd6 
+
+  0x0000020cb2f4b798: ;   {internal_word}
+  0x0000020cb2f4b798: c5f8 7749 | ba98 b7f4 | b20c 0200 | 004d 8997 | a002 0000 | 4989 a798 
+
+  0x0000020cb2f4b7b0: ;   {external_word}
+  0x0000020cb2f4b7b0: 0200 0049 | baa9 c6c9 | 6ff9 7f00 | 0041 803a | 000f 8452 | 0000 0052 | 4150 4151 
+
+  0x0000020cb2f4b7cc: ;   {metadata({method} {0x0000020d086c17f0} 'copyJni' '([FLjava/nio/Buffer;II)V' in 'com/badlogic/gdx/utils/BufferUtils')}
+  0x0000020cb2f4b7cc: 48ba e817 | 6c08 0d02 | 0000 498b | cf48 83ec | 20f7 c40f | 0000 000f | 841a 0000 | 0048 83ec 
+  0x0000020cb2f4b7ec: ;   {runtime_call}
+  0x0000020cb2f4b7ec: 0849 ba70 | 8b7f 6ff9 | 7f00 0041 | ffd2 4883 | c408 e90d 
+
+  0x0000020cb2f4b800: ;   {runtime_call}
+  0x0000020cb2f4b800: 0000 0049 | ba70 8b7f | 6ff9 7f00 | 0041 ffd2 | 4883 c420 | 4159 4158 | 5a49 8d8f | b802 0000 
+  0x0000020cb2f4b820: 41c7 8740 | 0300 0004 
+
+  0x0000020cb2f4b828: ;   {runtime_call}
+  0x0000020cb2f4b828: 0000 0049 | ba80 2070 | 6e00 0000 | 0041 ffd2 | c5f8 7741 | c787 4003 | 0000 0500 | 0000 f083 
+  0x0000020cb2f4b848: 4424 c000 | 493b af48 | 0300 000f | 8711 0000 | 0041 81bf | 3003 0000 | 0000 0000 | 0f84 2400 
+  0x0000020cb2f4b868: 0000 c5f8 | 7749 8bcf | 4c8b e448 | 83ec 2048 
+
+  0x0000020cb2f4b878: ;   {runtime_call}
+  0x0000020cb2f4b878: 83e4 f049 | ba90 998f | 6ff9 7f00 | 0041 ffd2 | 498b e44d | 33e4 41c7 | 8740 0300 | 0008 0000 
+  0x0000020cb2f4b898: 0041 81bf | b003 0000 | 0200 0000 | 0f84 9b00 
+
+  0x0000020cb2f4b8a8: ;   {external_word}
+  0x0000020cb2f4b8a8: 0000 49ba | a9c6 c96f | f97f 0000 | 4180 3a00 | 0f84 4800 
+
+  0x0000020cb2f4b8bc: ;   {metadata({method} {0x0000020d086c17f0} 'copyJni' '([FLjava/nio/Buffer;II)V' in 'com/badlogic/gdx/utils/BufferUtils')}
+  0x0000020cb2f4b8bc: 0000 48ba | e817 6c08 | 0d02 0000 | 498b cf48 | 83ec 20f7 | c40f 0000 | 000f 841a | 0000 0048 
+  0x0000020cb2f4b8dc: ;   {runtime_call}
+  0x0000020cb2f4b8dc: 83ec 0849 | ba70 8b7f | 6ff9 7f00 | 0041 ffd2 | 4883 c408 | e90d 0000 
+
+  0x0000020cb2f4b8f4: ;   {runtime_call}
+  0x0000020cb2f4b8f4: 0049 ba70 | 8b7f 6ff9 | 7f00 0041 | ffd2 4883 | c420 49c7 | 8798 0200 | 0000 0000 | 0049 c787 
+  0x0000020cb2f4b914: a002 0000 | 0000 0000 | c5f8 7749 | 8b8f d800 | 0000 c781 | 0001 0000 | 0000 0000 | c949 817f 
+  0x0000020cb2f4b934: 0800 0000 | 000f 8501 | 0000 00c3 
+
+  0x0000020cb2f4b940: ;   {runtime_call StubRoutines (1)}
+  0x0000020cb2f4b940: e9bb 55a0 | ffc5 f877 | 4c8b e448 | 83ec 2048 
+
+  0x0000020cb2f4b950: ;   {runtime_call}
+  0x0000020cb2f4b950: 83e4 f049 | ba90 bc7f | 6ff9 7f00 | 0041 ffd2 | 498b e44d | 33e4 e93f | ffff fff4 | f4f4 f4f4 
+[/MachCode]
+
+
+Compiled method (c2)    9878 1146       4       com.badlogic.gdx.graphics.g2d.SpriteBatch::flush (206 bytes)
+ total in heap  [0x0000020cb2f59810,0x0000020cb2f5aa70] = 4704
+ relocation     [0x0000020cb2f59968,0x0000020cb2f59a10] = 168
+ main code      [0x0000020cb2f59a20,0x0000020cb2f5a0c0] = 1696
+ stub code      [0x0000020cb2f5a0c0,0x0000020cb2f5a120] = 96
+ oops           [0x0000020cb2f5a120,0x0000020cb2f5a130] = 16
+ metadata       [0x0000020cb2f5a130,0x0000020cb2f5a250] = 288
+ scopes data    [0x0000020cb2f5a250,0x0000020cb2f5a730] = 1248
+ scopes pcs     [0x0000020cb2f5a730,0x0000020cb2f5a980] = 592
+ dependencies   [0x0000020cb2f5a980,0x0000020cb2f5a9b0] = 48
+ handler table  [0x0000020cb2f5a9b0,0x0000020cb2f5aa28] = 120
+ nul chk table  [0x0000020cb2f5aa28,0x0000020cb2f5aa70] = 72
+
+[Constant Pool (empty)]
+
+[MachCode]
+[Entry Point]
+  # {method} {0x0000020d08702728} 'flush' '()V' in 'com/badlogic/gdx/graphics/g2d/SpriteBatch'
+  #           [sp+0x70]  (sp of caller)
+  0x0000020cb2f59a20: 448b 5208 | 49bb 0000 | 00c7 0c02 | 0000 4d03 | d349 3bc2 
+
+  0x0000020cb2f59a34: ;   {runtime_call ic_miss_stub}
+  0x0000020cb2f59a34: 0f85 4676 | a4ff 6690 | 0f1f 4000 
+[Verified Entry Point]
+  0x0000020cb2f59a40: 8984 2400 | 90ff ff55 | 4883 ec60 | 4889 1424 | 448b 420c | 4585 c00f | 84c3 0200 | 00ff 4230 
+  0x0000020cb2f59a60: 448b 5234 | ff42 2c4d | 63d8 41c1 | f81f 4d69 | db67 6666 | 6649 c1fb | 2341 8bcb | 412b c890 
+  0x0000020cb2f59a80: 413b ca0f | 8f47 0300 | 0044 8b52 | 4847 8b4c | d40c 478b 
+
+  0x0000020cb2f59a94: ;   {oop(a 'java/lang/Class'{0x0000000703404950} = 'com/badlogic/gdx/Gdx')}
+  0x0000020cb2f59a94: 44d4 1049 | ba50 4940 | 0307 0000 | 0041 8b9a | 8800 0000 
+
+  0x0000020cb2f59aa8: ; implicit exception: dispatches to 0x0000020cb2f59ffc
+  0x0000020cb2f59aa8: 458b 5cdc | 0844 8bd1 | 41c1 e202 | d1e1 4103 | ca89 4c24 | 0866 6690 
+
+  0x0000020cb2f59ac0: ;   {metadata('com/badlogic/gdx/backends/lwjgl3/Lwjgl3GL20')}
+  0x0000020cb2f59ac0: 4181 fb70 | 3203 010f | 8566 0200 | 0041 8bd1 
+
+  0x0000020cb2f59ad0: ;   {static_call}
+  0x0000020cb2f59ad0: 6666 90e8 
+
+  0x0000020cb2f59ad4: ; ImmutableOopMap {[0]=Oop }
+                      ;*invokestatic glBindTexture {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.lwjgl.opengl.GL11::glBindTexture@2 (line 854)
+                      ; - com.badlogic.gdx.backends.lwjgl3.Lwjgl3GL20::glBindTexture@2 (line 92)
+                      ; - com.badlogic.gdx.graphics.GLTexture::bind@11 (line 73)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@58 (line 975)
+  0x0000020cb2f59ad4: 6810 ffff | 4c8b 1424 | 418b 7a40 | 458b 4244 | 458b 5a0c 
+
+  0x0000020cb2f59ae8: ; implicit exception: dispatches to 0x0000020cb2f5a010
+  0x0000020cb2f59ae8: 418b 6cfc | 1045 8b4c | ec08 6666 | 0f1f 8400 | 0000 0000 | 6666 6690 
+
+  0x0000020cb2f59b00: ;   {metadata('com/badlogic/gdx/graphics/glutils/VertexBufferObject')}
+  0x0000020cb2f59b00: 4181 f9a0 | fb03 010f | 8547 0200 | 0049 8d0c | ec44 8b49 | 20c6 4115 | 010f 1f80 | 0000 0000 
+  0x0000020cb2f59b20: ; implicit exception: dispatches to 0x0000020cb2f5a038
+  0x0000020cb2f59b20: 438b 5ccc | 0845 8bd3 | 41c1 e202 
+
+  0x0000020cb2f59b2c: ;   {metadata('java/nio/DirectByteBuffer')}
+  0x0000020cb2f59b2c: 81fb f89c | 0800 0f85 | 3402 0000 | 49c1 e103 | 418b 6920 | 443b d50f | 8f9f 0200 | 0045 85d2 
+  0x0000020cb2f59b4c: 0f8c c202 | 0000 4589 | 511c 418b | 6918 660f | 1f44 0000 | 413b ea0f | 8fef 0200 | 0041 8b69 
+  0x0000020cb2f59b6c: 0c41 3bea | 0f8f 0e03 | 0000 4c89 | 4c24 2048 | 894c 2418 | 4489 5c24 | 1049 8bd0 | 48c1 e203 
+  0x0000020cb2f59b8c: 4d8d 14fc | 4c89 5424 | 2889 7c24 | 0c4d 8bc1 | 458b cb33 | ff49 8bea 
+
+  0x0000020cb2f59ba4: ;   {static_call}
+  0x0000020cb2f59ba4: 6666 90e8 
+
+  0x0000020cb2f59ba8: ; ImmutableOopMap {rbp=Oop [0]=Oop [12]=NarrowOop [24]=Oop [32]=Oop [40]=Oop }
+                      ;*invokestatic copyJni {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.utils.BufferUtils::copy@35 (line 58)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@12 (line 142)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59ba8: 941b ffff | 4c8b 5424 | 2041 8b6a | 1c85 ed0f | 8cf3 0200 | 0041 8b6a | 0c85 ed0f | 8ff3 0200 
+  0x0000020cb2f59bc8: 0045 8962 | 184c 8b4c | 2418 418b | 491c 6666 | 0f1f 8400 | 0000 0000 
+
+  0x0000020cb2f59be0: ; implicit exception: dispatches to 0x0000020cb2f5a06c
+  0x0000020cb2f59be0: 418b 6ccc | 1c85 ed0f | 8cdb 0200 | 0041 8b7c | cc0c 85ff | 0f8f de02 | 0000 4589 | 64cc 1841 
+  0x0000020cb2f59c00: 8b6c cc20 | 448b 5c24 | 1044 3bdd | 0f8f fa02 | 0000 4585 | db0f 8c05 | 0300 0045 | 895c cc1c 
+  0x0000020cb2f59c20: 413b fb0f | 8f27 0300 | 0041 0fb6 | 6916 85ed | 0f85 4e03 | 0000 4c8b | 1c24 418b | 6b3c 6690 
+  0x0000020cb2f59c40: ;   {oop(a 'com/badlogic/gdx/graphics/Mesh$VertexDataType'{0x0000000710a15820})}
+  0x0000020cb2f59c40: 81fd 042b | 14e2 0f84 | 4403 0000 | 410f b66b | 3985 ed0f | 8543 0300 
+
+  0x0000020cb2f59c58: ;   {oop(a 'java/lang/Class'{0x0000000703404950} = 'com/badlogic/gdx/Gdx')}
+  0x0000020cb2f59c58: 0049 ba50 | 4940 0307 | 0000 0041 | 8baa 8800 | 0000 458b 
+
+  0x0000020cb2f59c6c: ;   {metadata('com/badlogic/gdx/backends/lwjgl3/Lwjgl3GL20')}
+  0x0000020cb2f59c6c: 54ec 0841 | 81fa 7032 | 0301 0f85 | 2c01 0000 | 498b ebba | e20b 0000 
+
+  0x0000020cb2f59c84: ;   {static_call}
+  0x0000020cb2f59c84: 6666 90e8 
+
+  0x0000020cb2f59c88: ; ImmutableOopMap {rbp=Oop [0]=Oop [12]=NarrowOop [40]=Oop }
+                      ;*invokestatic glEnable {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.lwjgl.opengl.GL11::glEnable@1 (line 724)
+                      ; - com.badlogic.gdx.backends.lwjgl3.Lwjgl3GL20::glEnable@1 (line 306)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@138 (line 989)
+  0x0000020cb2f59c88: b412 ffff | 4c8b dd41 | 8b4b 1883 | f9ff 0f84 | 0c03 0000 | 418b 7b24 
+
+  0x0000020cb2f59ca0: ;   {oop(a 'java/lang/Class'{0x0000000703404950} = 'com/badlogic/gdx/Gdx')}
+  0x0000020cb2f59ca0: 49ba 5049 | 4003 0700 | 0000 418b | aa88 0000 | 0045 8b43 | 1c45 8b4b | 200f 1f80 | 0000 0000 
+  0x0000020cb2f59cc0: ; implicit exception: dispatches to 0x0000020cb2f5a084
+  0x0000020cb2f59cc0: 458b 54ec 
+
+  0x0000020cb2f59cc4: ;   {metadata('com/badlogic/gdx/backends/lwjgl3/Lwjgl3GL20')}
+  0x0000020cb2f59cc4: 0841 81fa | 7032 0301 | 0f85 e200 | 0000 8bd1 
+
+  0x0000020cb2f59cd4: ;   {static_call}
+  0x0000020cb2f59cd4: 6666 90e8 
+
+  0x0000020cb2f59cd8: ; ImmutableOopMap {[0]=Oop [12]=NarrowOop [40]=Oop }
+                      ;*invokestatic glBlendFuncSeparate {reexecute=0 rethrow=0 return_oop=0}
+                      ; - org.lwjgl.opengl.GL14::glBlendFuncSeparate@4 (line 777)
+                      ; - com.badlogic.gdx.backends.lwjgl3.Lwjgl3GL20::glBlendFuncSeparate@5 (line 112)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@170 (line 990)
+  0x0000020cb2f59cd8: 641e ffff | 4c8b 1424 | 418b 6a5c | 85ed 0f85 | d402 0000 | 448b 5c24 | 0c43 0fb6 | 4cdc 0c45 
+  0x0000020cb2f59cf8: 8b52 584d | 8bc2 49c1 | e003 41b9 | 0400 0000 | 488b 5424 | 2833 ff8b 
+
+  0x0000020cb2f59d10: ;   {optimized virtual_call}
+  0x0000020cb2f59d10: 7424 08e8 
+
+  0x0000020cb2f59d14: ; ImmutableOopMap {[0]=Oop }
+                      ;*invokevirtual render {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.Mesh::render@10 (line 593)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@197 (line 993)
+  0x0000020cb2f59d14: 0824 0000 | 4c8b 1424 | 4589 620c | 4883 c460 
+
+  0x0000020cb2f59d24: ;   {poll_return}
+  0x0000020cb2f59d24: 5d49 3ba7 | 4803 0000 | 0f87 6e03 | 0000 c3ba | deff ffff | 488b 2c24 | 890c 2489 | 5c24 0444 
+  0x0000020cb2f59d44: 894c 2408 | 4489 4424 
+
+  0x0000020cb2f59d4c: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59d4c: 0c66 90e8 
+
+  0x0000020cb2f59d50: ; ImmutableOopMap {rbp=Oop [4]=NarrowOop }
+                      ;*invokeinterface glBindTexture {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.GLTexture::bind@11 (line 73)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@58 (line 975)
+  0x0000020cb2f59d50: accb a4ff | bade ffff | ff89 7c24 | 1044 8944 | 2414 4489 
+
+  0x0000020cb2f59d64: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59d64: 5c24 18e8 
+
+  0x0000020cb2f59d68: ; ImmutableOopMap {rbp=NarrowOop [0]=Oop [16]=NarrowOop [20]=NarrowOop }
+                      ;*invokeinterface setVertices {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59d68: 94cb a4ff | bade ffff | ff48 8b2c | 2448 8944 | 24f8 8b44 | 2408 8904 | 2448 8b44 | 24f8 897c 
+  0x0000020cb2f59d88: 2408 4889 | 4c24 1044 | 8944 2418 | 4489 5c24 | 2044 894c | 2424 4489 
+
+  0x0000020cb2f59da0: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59da0: 5424 28e8 
+
+  0x0000020cb2f59da4: ; ImmutableOopMap {rbp=Oop [8]=NarrowOop [16]=Oop [24]=NarrowOop [36]=NarrowOop }
+                      ;*invokevirtual limit {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.utils.BufferUtils::copy@11 (line 55)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@12 (line 142)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59da4: 58cb a4ff | bade ffff 
+
+  0x0000020cb2f59dac: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59dac: ff66 90e8 
+
+  0x0000020cb2f59db0: ; ImmutableOopMap {rbp=NarrowOop [0]=Oop [12]=NarrowOop }
+                      ;*invokeinterface glEnable {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@138 (line 989)
+  0x0000020cb2f59db0: 4ccb a4ff | bade ffff | ff89 4c24 | 1044 8944 | 2414 4489 | 4c24 1889 
+
+  0x0000020cb2f59dc8: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59dc8: 7c24 1ce8 
+
+  0x0000020cb2f59dcc: ; ImmutableOopMap {rbp=NarrowOop [0]=Oop [12]=NarrowOop }
+                      ;*invokeinterface glBlendFuncSeparate {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@170 (line 990)
+  0x0000020cb2f59dcc: 30cb a4ff | ba45 ffff | ff48 8b2c | 2489 4c24 | 0444 8954 
+
+  0x0000020cb2f59de0: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59de0: 2408 90e8 
+
+  0x0000020cb2f59de4: ; ImmutableOopMap {rbp=Oop }
+                      ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@41 (line 972)
+  0x0000020cb2f59de4: 18cb a4ff | ba45 ffff | ff89 7c24 | 1048 894c | 2418 4489 | 4424 2044 | 895c 2424 | 4c89 4c24 
+  0x0000020cb2f59e04: 304c 894c | 2438 4489 
+
+  0x0000020cb2f59e0c: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59e0c: 5424 4ce8 
+
+  0x0000020cb2f59e10: ; ImmutableOopMap {[0]=Oop [16]=NarrowOop [24]=Oop [32]=NarrowOop [48]=Oop [56]=Oop }
+                      ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::limit@5 (line 368)
+                      ; - java.nio.ByteBuffer::limit@2 (line 1529)
+                      ; - java.nio.MappedByteBuffer::limit@2 (line 330)
+                      ; - java.nio.MappedByteBuffer::limit@2 (line 73)
+                      ; - com.badlogic.gdx.utils.BufferUtils::copy@11 (line 55)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@12 (line 142)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59e10: ecca a4ff | ba45 ffff | ff48 8b2c | 2448 8944 | 24f8 8b44 | 2408 8904 | 2448 8b44 | 24f8 897c 
+  0x0000020cb2f59e30: 2408 4889 | 4c24 1044 | 8944 2418 | 4489 5c24 | 1c4c 894c | 2428 4c89 | 4c24 3044 | 8954 2444 
+  0x0000020cb2f59e50: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59e50: 6666 90e8 
+
+  0x0000020cb2f59e54: ; ImmutableOopMap {rbp=Oop [8]=NarrowOop [16]=Oop [24]=NarrowOop [40]=Oop [48]=Oop }
+                      ;*ifge {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::limit@14 (line 368)
+                      ; - java.nio.ByteBuffer::limit@2 (line 1529)
+                      ; - java.nio.MappedByteBuffer::limit@2 (line 330)
+                      ; - java.nio.MappedByteBuffer::limit@2 (line 73)
+                      ; - com.badlogic.gdx.utils.BufferUtils::copy@11 (line 55)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@12 (line 142)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59e54: a8ca a4ff | ba45 ffff | ff89 7c24 | 1048 894c | 2418 4489 | 4424 2044 | 895c 2424 | 4c89 4c24 
+  0x0000020cb2f59e74: 304c 894c | 2438 4489 
+
+  0x0000020cb2f59e7c: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59e7c: 5424 4ce8 
+
+  0x0000020cb2f59e80: ; ImmutableOopMap {[0]=Oop [16]=NarrowOop [24]=Oop [32]=NarrowOop [48]=Oop [56]=Oop }
+                      ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::limit@42 (line 371)
+                      ; - java.nio.ByteBuffer::limit@2 (line 1529)
+                      ; - java.nio.MappedByteBuffer::limit@2 (line 330)
+                      ; - java.nio.MappedByteBuffer::limit@2 (line 73)
+                      ; - com.badlogic.gdx.utils.BufferUtils::copy@11 (line 55)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@12 (line 142)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59e80: 7cca a4ff | ba45 ffff | ff89 7c24 | 1048 894c | 2418 4489 | 4424 2044 | 895c 2424 | 4c89 4c24 
+  0x0000020cb2f59ea0: 304c 894c | 2438 4489 
+
+  0x0000020cb2f59ea8: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59ea8: 5424 48e8 
+
+  0x0000020cb2f59eac: ; ImmutableOopMap {[0]=Oop [16]=NarrowOop [24]=Oop [32]=NarrowOop [48]=Oop [56]=Oop }
+                      ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::limit@55 (line 372)
+                      ; - java.nio.ByteBuffer::limit@2 (line 1529)
+                      ; - java.nio.MappedByteBuffer::limit@2 (line 330)
+                      ; - java.nio.MappedByteBuffer::limit@2 (line 73)
+                      ; - com.badlogic.gdx.utils.BufferUtils::copy@11 (line 55)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@12 (line 142)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59eac: 50ca a4ff | ba45 ffff 
+
+  0x0000020cb2f59eb4: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59eb4: ff66 90e8 
+
+  0x0000020cb2f59eb8: ; ImmutableOopMap {[0]=Oop [12]=NarrowOop [24]=Oop [32]=Oop }
+                      ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::position@5 (line 315)
+                      ; - java.nio.ByteBuffer::position@2 (line 1516)
+                      ; - java.nio.MappedByteBuffer::position@2 (line 321)
+                      ; - java.nio.MappedByteBuffer::position@2 (line 73)
+                      ; - com.badlogic.gdx.utils.BufferUtils::copy@40 (line 59)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@12 (line 142)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59eb8: 44ca a4ff | ba45 ffff 
+
+  0x0000020cb2f59ec0: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59ec0: ff66 90e8 
+
+  0x0000020cb2f59ec4: ; ImmutableOopMap {[0]=Oop [12]=NarrowOop [24]=Oop [32]=Oop }
+                      ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::position@37 (line 317)
+                      ; - java.nio.ByteBuffer::position@2 (line 1516)
+                      ; - java.nio.MappedByteBuffer::position@2 (line 321)
+                      ; - java.nio.MappedByteBuffer::position@2 (line 73)
+                      ; - com.badlogic.gdx.utils.BufferUtils::copy@40 (line 59)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@12 (line 142)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59ec4: 38ca a4ff | ba45 ffff | ff89 4c24 
+
+  0x0000020cb2f59ed0: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59ed0: 2466 90e8 
+
+  0x0000020cb2f59ed4: ; ImmutableOopMap {[0]=Oop [12]=NarrowOop [24]=Oop [36]=NarrowOop }
+                      ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::position@5 (line 315)
+                      ; - java.nio.FloatBuffer::position@2 (line 1516)
+                      ; - java.nio.FloatBuffer::position@2 (line 267)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@20 (line 143)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59ed4: 28ca a4ff | ba45 ffff | ff48 8b2c | 2444 8b5c | 2408 4489 | 1c24 448b | 5424 0c44 | 8954 2408 
+  0x0000020cb2f59ef4: 448b 5c24 | 1044 895c | 240c 894c | 2414 897c 
+
+  0x0000020cb2f59f04: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59f04: 2420 90e8 
+
+  0x0000020cb2f59f08: ; ImmutableOopMap {rbp=Oop [8]=NarrowOop [20]=NarrowOop [24]=Oop }
+                      ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::position@37 (line 317)
+                      ; - java.nio.FloatBuffer::position@2 (line 1516)
+                      ; - java.nio.FloatBuffer::position@2 (line 267)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@20 (line 143)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59f08: f4c9 a4ff | ba45 ffff | ff89 4c24 | 2044 895c 
+
+  0x0000020cb2f59f18: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59f18: 2428 90e8 
+
+  0x0000020cb2f59f1c: ; ImmutableOopMap {[0]=Oop [12]=NarrowOop [24]=Oop [32]=NarrowOop }
+                      ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::limit@5 (line 368)
+                      ; - java.nio.FloatBuffer::limit@2 (line 1529)
+                      ; - java.nio.FloatBuffer::limit@2 (line 267)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@29 (line 144)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59f1c: e0c9 a4ff | ba45 ffff | ff48 8b2c | 2444 8b44 | 2408 4489 | 0424 448b | 5424 0c44 | 8954 2408 
+  0x0000020cb2f59f3c: 4c89 4c24 | 1089 4c24 | 1844 895c 
+
+  0x0000020cb2f59f48: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59f48: 2420 90e8 
+
+  0x0000020cb2f59f4c: ; ImmutableOopMap {rbp=Oop [8]=NarrowOop [16]=Oop [24]=NarrowOop }
+                      ;*ifge {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::limit@14 (line 368)
+                      ; - java.nio.FloatBuffer::limit@2 (line 1529)
+                      ; - java.nio.FloatBuffer::limit@2 (line 267)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@29 (line 144)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59f4c: b0c9 a4ff | ba45 ffff | ff48 8b2c | 2444 8b44 | 2408 4489 | 0424 448b | 5424 0c44 | 8954 2408 
+  0x0000020cb2f59f6c: 4c89 4c24 | 1089 4c24 | 1889 7c24 | 1c44 895c 
+
+  0x0000020cb2f59f7c: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59f7c: 2420 90e8 
+
+  0x0000020cb2f59f80: ; ImmutableOopMap {rbp=Oop [8]=NarrowOop [16]=Oop [24]=NarrowOop }
+                      ;*if_icmple {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) java.nio.Buffer::limit@55 (line 372)
+                      ; - java.nio.FloatBuffer::limit@2 (line 1529)
+                      ; - java.nio.FloatBuffer::limit@2 (line 267)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@29 (line 144)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59f80: 7cc9 a4ff | ba45 ffff 
+
+  0x0000020cb2f59f88: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59f88: ff66 90e8 
+
+  0x0000020cb2f59f8c: ; ImmutableOopMap {[0]=Oop [12]=NarrowOop [24]=Oop }
+                      ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.badlogic.gdx.graphics.glutils.VertexBufferObject::bufferChanged@4 (line 133)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@34 (line 145)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f59f8c: 70c9 a4ff | ba45 ffff 
+
+  0x0000020cb2f59f94: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59f94: ff66 90e8 
+
+  0x0000020cb2f59f98: ; ImmutableOopMap {rbp=NarrowOop [0]=Oop [12]=NarrowOop }
+                      ;*if_acmpne {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@87 (line 980)
+  0x0000020cb2f59f98: 64c9 a4ff | ba45 ffff 
+
+  0x0000020cb2f59fa0: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59fa0: ff66 90e8 
+
+  0x0000020cb2f59fa4: ; ImmutableOopMap {[0]=Oop [12]=NarrowOop }
+                      ;*ifeq {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@115 (line 986)
+  0x0000020cb2f59fa4: 58c9 a4ff | ba45 ffff | ff44 8b5c | 2408 4489 | 1c24 894c 
+
+  0x0000020cb2f59fb8: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59fb8: 2408 90e8 
+
+  0x0000020cb2f59fbc: ; ImmutableOopMap {rbp=Oop [12]=NarrowOop }
+                      ;*if_icmpeq {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@148 (line 990)
+  0x0000020cb2f59fbc: 40c9 a4ff | ba45 ffff 
+
+  0x0000020cb2f59fc4: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59fc4: ff66 90e8 
+
+  0x0000020cb2f59fc8: ; ImmutableOopMap {rbp=NarrowOop [0]=Oop [12]=NarrowOop }
+                      ;*ifnull {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@180 (line 993)
+  0x0000020cb2f59fc8: 34c9 a4ff | 488b d0eb | 1448 8bd0 | eb0f 488b | d0eb 0a48 | 8bd0 6690 | eb03 488b | d048 83c4 
+  0x0000020cb2f59fe8: ;   {runtime_call _rethrow_Java}
+  0x0000020cb2f59fe8: 605d e911 | 7daf ffba | f6ff ffff 
+
+  0x0000020cb2f59ff4: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f59ff4: 6666 90e8 
+
+  0x0000020cb2f59ff8: ; ImmutableOopMap {}
+                      ;*invokevirtual bind {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@58 (line 975)
+  0x0000020cb2f59ff8: 04c9 a4ff | baf6 ffff | ff41 8be9 | 4489 0424 
+
+  0x0000020cb2f5a008: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f5a008: 6666 90e8 
+
+  0x0000020cb2f5a00c: ; ImmutableOopMap {}
+                      ;*invokeinterface glBindTexture {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.GLTexture::bind@11 (line 73)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@58 (line 975)
+  0x0000020cb2f5a00c: f0c8 a4ff | baf6 ffff | ff41 8be8 | 4489 1c24 
+
+  0x0000020cb2f5a01c: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f5a01c: 6666 90e8 
+
+  0x0000020cb2f5a020: ; ImmutableOopMap {rbp=NarrowOop }
+                      ;*invokevirtual setVertices {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f5a020: dcc8 a4ff | baf6 ffff | ff41 8be8 | 4489 1c24 
+
+  0x0000020cb2f5a030: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f5a030: 6666 90e8 
+
+  0x0000020cb2f5a034: ; ImmutableOopMap {rbp=NarrowOop }
+                      ;*invokeinterface setVertices {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f5a034: c8c8 a4ff | baf4 ffff | ff49 8bea | 4889 4424 | f88b 4424 | 0889 0424 | 488b 4424 | f889 7c24 
+  0x0000020cb2f5a054: 0848 894c | 2410 4489 | 4424 1844 | 895c 241c 
+
+  0x0000020cb2f5a064: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f5a064: 6666 90e8 
+
+  0x0000020cb2f5a068: ; ImmutableOopMap {rbp=Oop [8]=NarrowOop [16]=Oop [24]=NarrowOop }
+                      ;*instanceof {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.utils.BufferUtils::copy@1 (line 54)
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@12 (line 142)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f5a068: 94c8 a4ff | baf6 ffff 
+
+  0x0000020cb2f5a070: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f5a070: ff66 90e8 
+
+  0x0000020cb2f5a074: ; ImmutableOopMap {}
+                      ;*invokevirtual position {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.glutils.VertexBufferObject::setVertices@20 (line 143)
+                      ; - com.badlogic.gdx.graphics.Mesh::setVertices@7 (line 330)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@76 (line 977)
+  0x0000020cb2f5a074: 88c8 a4ff | baf6 ffff 
+
+  0x0000020cb2f5a07c: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f5a07c: ff66 90e8 
+
+  0x0000020cb2f5a080: ; ImmutableOopMap {}
+                      ;*invokeinterface glEnable {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@138 (line 989)
+  0x0000020cb2f5a080: 7cc8 a4ff | baf6 ffff | ff8b e944 | 8904 2444 | 894c 2404 | 897c 2408 
+
+  0x0000020cb2f5a098: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f5a098: 6666 90e8 
+
+  0x0000020cb2f5a09c: ; ImmutableOopMap {}
+                      ;*invokeinterface glBlendFuncSeparate {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::flush@170 (line 990)
+  0x0000020cb2f5a09c: 60c8 a4ff 
+
+  0x0000020cb2f5a0a0: ;   {internal_word}
+  0x0000020cb2f5a0a0: 49ba 259d | f5b2 0c02 | 0000 4d89 | 9760 0300 
+
+  0x0000020cb2f5a0b0: ;   {runtime_call SafepointBlob}
+  0x0000020cb2f5a0b0: 00e9 4ad9 | a4ff f4f4 | f4f4 f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x0000020cb2f5a0c0: ;   {no_reloc}
+  0x0000020cb2f5a0c0: 48bb 0000 | 0000 0000 
+
+  0x0000020cb2f5a0c8: ;   {runtime_call}
+  0x0000020cb2f5a0c8: 0000 e9fb 
+
+  0x0000020cb2f5a0cc: ;   {static_stub}
+  0x0000020cb2f5a0cc: ffff ff48 | bb00 0000 | 0000 0000 
+
+  0x0000020cb2f5a0d8: ;   {runtime_call}
+  0x0000020cb2f5a0d8: 00e9 fbff 
+
+  0x0000020cb2f5a0dc: ;   {static_stub}
+  0x0000020cb2f5a0dc: ffff 48bb | 0000 0000 | 0000 0000 
+
+  0x0000020cb2f5a0e8: ;   {runtime_call}
+  0x0000020cb2f5a0e8: e9fb ffff 
+
+  0x0000020cb2f5a0ec: ;   {static_stub}
+  0x0000020cb2f5a0ec: ff48 bb00 | 0000 0000 
+
+  0x0000020cb2f5a0f4: ;   {runtime_call}
+  0x0000020cb2f5a0f4: 0000 00e9 | fbff ffff 
+
+  0x0000020cb2f5a0fc: ;   {static_stub}
+  0x0000020cb2f5a0fc: 48bb 0000 | 0000 0000 
+
+  0x0000020cb2f5a104: ;   {runtime_call}
+  0x0000020cb2f5a104: 0000 e9fb 
+
+  0x0000020cb2f5a108: ;   {runtime_call ExceptionBlob}
+  0x0000020cb2f5a108: ffff ffe9 | 7096 aeff 
+[Deopt Handler Code]
+  0x0000020cb2f5a110: e800 0000 | 0048 832c 
+
+  0x0000020cb2f5a118: ;   {runtime_call DeoptimizationBlob}
+  0x0000020cb2f5a118: 2405 e981 | cba4 fff4 
+[/MachCode]
+
+
+Compiled method (c2)    9900 1039       4       com.badlogic.gdx.graphics.g2d.SpriteBatch::draw (18 bytes)
+ total in heap  [0x0000020cb2f4d790,0x0000020cb2f4e1e0] = 2640
+ relocation     [0x0000020cb2f4d8e8,0x0000020cb2f4d928] = 64
+ constants      [0x0000020cb2f4d940,0x0000020cb2f4d960] = 32
+ main code      [0x0000020cb2f4d960,0x0000020cb2f4de00] = 1184
+ stub code      [0x0000020cb2f4de00,0x0000020cb2f4de28] = 40
+ oops           [0x0000020cb2f4de28,0x0000020cb2f4de30] = 8
+ metadata       [0x0000020cb2f4de30,0x0000020cb2f4de78] = 72
+ scopes data    [0x0000020cb2f4de78,0x0000020cb2f4e098] = 544
+ scopes pcs     [0x0000020cb2f4e098,0x0000020cb2f4e178] = 224
+ dependencies   [0x0000020cb2f4e178,0x0000020cb2f4e198] = 32
+ handler table  [0x0000020cb2f4e198,0x0000020cb2f4e1b0] = 24
+ nul chk table  [0x0000020cb2f4e1b0,0x0000020cb2f4e1e0] = 48
+
+
+[Constant Pool]
+             Address          hex4                    hex8      
+  0x0000020cb2f4d940:   0x3f800000      0xf4f4f4f43f800000      
+  0x0000020cb2f4d944:   0xf4f4f4f4                              
+  0x0000020cb2f4d948:   0xf4f4f4f4      0xf4f4f4f4f4f4f4f4      
+  0x0000020cb2f4d94c:   0xf4f4f4f4                              
+  0x0000020cb2f4d950:   0xf4f4f4f4      0xf4f4f4f4f4f4f4f4      
+  0x0000020cb2f4d954:   0xf4f4f4f4                              
+  0x0000020cb2f4d958:   0xf4f4f4f4      0xf4f4f4f4f4f4f4f4      
+  0x0000020cb2f4d95c:   0xf4f4f4f4                              
+
+[MachCode]
+[Entry Point]
+  # {method} {0x0000020d08700da0} 'draw' '(Lcom/badlogic/gdx/graphics/Texture;FF)V' in 'com/badlogic/gdx/graphics/g2d/SpriteBatch'
+  # this:     rdx:rdx   = 'com/badlogic/gdx/graphics/g2d/SpriteBatch'
+  # parm0:    r8:r8     = 'com/badlogic/gdx/graphics/Texture'
+  # parm1:    xmm0      = float
+  # parm2:    xmm1      = float
+  #           [sp+0x70]  (sp of caller)
+  0x0000020cb2f4d960: ;   {no_reloc}
+  0x0000020cb2f4d960: 448b 5208 | 49bb 0000 | 00c7 0c02 | 0000 4d03 | d349 3bc2 
+
+  0x0000020cb2f4d974: ;   {runtime_call ic_miss_stub}
+  0x0000020cb2f4d974: 0f85 0637 | a5ff 6690 | 0f1f 4000 
+[Verified Entry Point]
+  0x0000020cb2f4d980: 8984 2400 | 90ff ff55 | 4883 ec60 | c5fa 114c | 2434 c5fa | 1144 2430 | 4889 5424 | 284c 8944 
+  0x0000020cb2f4d9a0: 2438 458b | 5828 478b 
+
+  0x0000020cb2f4d9a8: ;   {metadata('com/badlogic/gdx/graphics/glutils/FileTextureData')}
+  0x0000020cb2f4d9a8: 54dc 0841 | 81fa b894 | 0301 0f85 | 1403 0000 | 0fb6 6a38 | 4f8d 14dc | c4c1 6a2a | 520c c4c1 
+  0x0000020cb2f4d9c8: 5a2a 6210 | 85ed 0f84 | 1803 0000 | 448b 5a44 | 4489 5c24 | 4844 8b52 | 4849 c1e2 | 034d 3bc2 
+  0x0000020cb2f4d9e8: 0f85 1501 | 0000 448b | 5c24 4847 | 8b4c dc0c | 448b 520c | 0f1f 4000 | 453b d10f | 840f 0300 
+  0x0000020cb2f4da08: 0044 8b44 | 2448 478b | 44c4 0c4c | 8b5c 2428 | c4c1 7a10 | 5b28 c5fa | 1044 2430 | c5fa 58ea 
+  0x0000020cb2f4da28: c5fa 104c | 2434 c5f2 | 58d4 453b | d00f 8311 | 0200 0045 | 8bca 4183 | c113 448b | 5c24 4849 
+  0x0000020cb2f4da48: c1e3 03c4 | 817a 1144 | 9310 453b | c80f 8335 | 0200 004d | 63c2 c481 | 7a11 4c83 | 14c4 817a 
+  0x0000020cb2f4da68: 115c 8318 | 4789 6483 | 1c43 c744 | 8320 0000 | 803f c481 | 7a11 4483 | 24c4 817a | 1154 8328 
+  0x0000020cb2f4da88: c481 7a11 | 5c83 2c47 | 8964 8330 | 4789 6483 | 34c4 817a | 116c 8338 | c481 7a11 | 5483 3cc4 
+  0x0000020cb2f4daa8: 817a 115c | 8340 43c7 | 4483 4400 | 0080 3f47 | 8964 8348 | c481 7a11 | 6c83 4cc4 | 817a 114c 
+  0x0000020cb2f4dac8: 8350 c481 | 7a11 5c83 | 5443 c744 | 8358 0000 | 803f 43c7 | 4483 5c00 | 0080 3f41 | 83c2 144c 
+  0x0000020cb2f4dae8: 8b5c 2428 | 4589 530c | 4883 c460 
+
+  0x0000020cb2f4daf4: ;   {poll_return}
+  0x0000020cb2f4daf4: 5d49 3ba7 | 4803 0000 | 0f87 e202 | 0000 c3c5 | fa11 6424 | 44c5 fa11 | 5424 4048 
+
+  0x0000020cb2f4db10: ;   {optimized virtual_call}
+  0x0000020cb2f4db10: 8bea 90e8 
+
+  0x0000020cb2f4db14: ; ImmutableOopMap {rbp=Oop [40]=Oop [56]=Oop [72]=NarrowOop }
+                      ;*invokevirtual flush {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::switchTexture@1 (line 1090)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@34 (line 532)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@14 (line 522)
+  0x0000020cb2f4db14: 28bf 0000 | 0f1f 8400 | 0000 0000 | 4180 7f38 | 000f 85a1 | 0000 004c | 8bd5 4c8b | 5c24 384d 
+  0x0000020cb2f4db34: 8bc3 49c1 | e803 4489 | 4548 4c8b | 5c24 384d | 33da 49c1 | eb15 4d85 | db74 1a49 | c1ea 0948 
+  0x0000020cb2f4db54: b900 2041 | b70c 0200 | 0049 03ca | 8039 040f | 859c 0000 | 004c 8b54 | 2438 458b | 4228 478b 
+  0x0000020cb2f4db74: 5cc4 0866 | 0f1f 8400 | 0000 0000 
+
+  0x0000020cb2f4db80: ;   {metadata('com/badlogic/gdx/graphics/glutils/FileTextureData')}
+  0x0000020cb2f4db80: 4181 fbb8 | 9403 010f | 85c3 0100 | 0044 8b55 | 0c4f 8d1c | c4c4 c17a | 2a43 0cc4 | c16a 2a53 
+  0x0000020cb2f4dba0: ;   {section_word}
+  0x0000020cb2f4dba0: 10c5 fa10 | 0d97 fdff | ffc5 f25e | d8c5 fa11 | 5d10 c5f2 | 5ec2 c5fa | 1145 14c5 | fa10 5424 
+  0x0000020cb2f4dbc0: 40c5 fa10 | 6424 44e9 | 3dfe ffff | 448b 5548 | 4585 d20f | 8452 ffff | ff4d 8b5f | 2049 8bca 
+  0x0000020cb2f4dbe0: 48c1 e103 | 4d85 db0f | 848f 0100 | 004d 8b57 | 304b 894c | 1af8 4983 | c3f8 4d89 | 5f20 6690 
+  0x0000020cb2f4dc00: e926 ffff | ff4d 8b57 | 404d 8b5f | 50f0 8344 | 24c0 0080 | 3900 0f84 | 4dff ffff | 4488 2190 
+  0x0000020cb2f4dc20: 4d85 d275 | 1549 8bd7 | 49ba 5028 | 3e6f f97f | 0000 41ff | d2e9 2fff | ffff 4b89 | 4c13 f849 
+  0x0000020cb2f4dc40: 83c2 f84d | 8957 40e9 | 1dff ffff | bae4 ffff | ff48 8b6c | 2428 c5fa | 114c 2424 | c5fa 1144 
+  0x0000020cb2f4dc60: 2428 4889 | 4424 f88b | 4424 4889 | 4424 2c48 | 8b44 24f8 | c5fa 116c | 2430 c5fa | 1154 2434 
+  0x0000020cb2f4dc80: c5fa 115c | 2438 4489 
+
+  0x0000020cb2f4dc88: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4dc88: 5424 44e8 
+
+  0x0000020cb2f4dc8c: ; ImmutableOopMap {rbp=Oop [44]=NarrowOop }
+                      ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@95 (line 545)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@14 (line 522)
+  0x0000020cb2f4dc8c: 708c a5ff | 418b eaff | c5ba e4ff | ffff 48ff | 7424 2848 | 8f44 2420 | c5fa 1144 | 2428 c5fa 
+  0x0000020cb2f4dcac: 114c 2430 | c5fa 116c | 2438 c5fa | 1154 243c | c5fa 115c | 2440 4489 
+
+  0x0000020cb2f4dcc4: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4dcc4: 5424 44e8 
+
+  0x0000020cb2f4dcc8: ; ImmutableOopMap {[32]=Oop [72]=NarrowOop }
+                      ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@103 (line 546)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@14 (line 522)
+  0x0000020cb2f4dcc8: 348c a5ff | bade ffff | ff48 ff74 | 2428 488f | 4424 204c | 8944 2428 | 4489 5c24 
+
+  0x0000020cb2f4dce4: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4dce4: 3866 90e8 
+
+  0x0000020cb2f4dce8: ; ImmutableOopMap {[32]=Oop [40]=Oop [56]=NarrowOop }
+                      ;*invokeinterface getWidth {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.Texture::getWidth@4 (line 196)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@5 (line 522)
+  0x0000020cb2f4dce8: 148c a5ff | ba45 ffff | ff48 ff74 | 2428 488f | 4424 2048 | ff74 2438 | 488f 4424 | 28c5 fa11 
+  0x0000020cb2f4dd08: 5424 38c5 | fa11 6424 
+
+  0x0000020cb2f4dd10: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4dd10: 3c66 90e8 
+
+  0x0000020cb2f4dd14: ; ImmutableOopMap {[32]=Oop [40]=Oop }
+                      ;*ifne {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@4 (line 527)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@14 (line 522)
+  0x0000020cb2f4dd14: e88b a5ff | ba45 ffff | ff48 8b6c | 2428 c5fa | 1144 2420 | c5fa 1044 | 2434 c5fa | 1144 2424 
+  0x0000020cb2f4dd34: c5fa 1154 | 2428 c5fa | 1164 242c | 4489 5424 | 3444 894c 
+
+  0x0000020cb2f4dd48: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4dd48: 2438 90e8 
+
+  0x0000020cb2f4dd4c: ; ImmutableOopMap {rbp=Oop [72]=NarrowOop }
+                      ;*if_icmpne {reexecute=1 rethrow=0 return_oop=0}
+                      ; - (reexecute) com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@47 (line 533)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@14 (line 522)
+  0x0000020cb2f4dd4c: b08b a5ff | bade ffff | ffc5 fa10 | 4c24 30c5 | fa11 4c24 | 20c5 fa10 | 4424 34c5 | fa11 4424 
+  0x0000020cb2f4dd6c: 244c 8954 | 2430 4489 
+
+  0x0000020cb2f4dd74: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4dd74: 4424 4ce8 
+
+  0x0000020cb2f4dd78: ; ImmutableOopMap {rbp=Oop [48]=Oop [72]=NarrowOop [76]=NarrowOop }
+                      ;*invokeinterface getWidth {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.Texture::getWidth@4 (line 196)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::switchTexture@12 (line 1092)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@34 (line 532)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@14 (line 522)
+  0x0000020cb2f4dd78: 848b a5ff | 498b d790 | 49ba 7028 | 3e6f f97f | 0000 41ff | d2e9 99fd | ffff 488b | d048 83c4 
+  0x0000020cb2f4dd98: ;   {runtime_call _rethrow_Java}
+  0x0000020cb2f4dd98: 605d e961 | 3fb0 ffba | f6ff ffff 
+
+  0x0000020cb2f4dda4: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4dda4: 6666 90e8 
+
+  0x0000020cb2f4dda8: ; ImmutableOopMap {}
+                      ;*invokevirtual getWidth {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@5 (line 522)
+  0x0000020cb2f4dda8: 548b a5ff | baf6 ffff 
+
+  0x0000020cb2f4ddb0: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4ddb0: ff66 90e8 
+
+  0x0000020cb2f4ddb4: ; ImmutableOopMap {}
+                      ;*invokeinterface getWidth {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.Texture::getWidth@4 (line 196)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@5 (line 522)
+  0x0000020cb2f4ddb4: 488b a5ff | baf6 ffff | ff8b 6c24 | 3044 8954 
+
+  0x0000020cb2f4ddc4: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4ddc4: 2420 90e8 
+
+  0x0000020cb2f4ddc8: ; ImmutableOopMap {}
+                      ;*fastore {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@95 (line 545)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@14 (line 522)
+  0x0000020cb2f4ddc8: 348b a5ff | baf6 ffff 
+
+  0x0000020cb2f4ddd0: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4ddd0: ff66 90e8 
+
+  0x0000020cb2f4ddd4: ; ImmutableOopMap {}
+                      ;*arraylength {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@46 (line 533)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@14 (line 522)
+  0x0000020cb2f4ddd4: 288b a5ff | baf6 ffff 
+
+  0x0000020cb2f4dddc: ;   {runtime_call UncommonTrapBlob}
+  0x0000020cb2f4dddc: ff66 90e8 
+
+  0x0000020cb2f4dde0: ; ImmutableOopMap {}
+                      ;*invokeinterface getWidth {reexecute=0 rethrow=0 return_oop=0}
+                      ; - com.badlogic.gdx.graphics.Texture::getWidth@4 (line 196)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::switchTexture@12 (line 1092)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@34 (line 532)
+                      ; - com.badlogic.gdx.graphics.g2d.SpriteBatch::draw@14 (line 522)
+  0x0000020cb2f4dde0: 1c8b a5ff 
+
+  0x0000020cb2f4dde4: ;   {internal_word}
+  0x0000020cb2f4dde4: 49ba f5da | f4b2 0c02 | 0000 4d89 | 9760 0300 
+
+  0x0000020cb2f4ddf4: ;   {runtime_call SafepointBlob}
+  0x0000020cb2f4ddf4: 00e9 069c | a5ff f4f4 | f4f4 f4f4 
+[Stub Code]
+  0x0000020cb2f4de00: ;   {no_reloc}
+  0x0000020cb2f4de00: 48bb 0000 | 0000 0000 
+
+  0x0000020cb2f4de08: ;   {runtime_call}
+  0x0000020cb2f4de08: 0000 e9fb 
+
+  0x0000020cb2f4de0c: ;   {runtime_call ExceptionBlob}
+  0x0000020cb2f4de0c: ffff ffe9 | 6c59 afff 
+[Deopt Handler Code]
+  0x0000020cb2f4de14: e800 0000 | 0048 832c 
+
+  0x0000020cb2f4de1c: ;   {runtime_call DeoptimizationBlob}
+  0x0000020cb2f4de1c: 2405 e97d | 8ea5 fff4 | f4f4 f4f4 
+[/MachCode]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000020d0e854f30, length=14, elements={
+0x0000020ca38cbc30, 0x0000020cc6082b40, 0x0000020cc60839c0, 0x0000020cc6096170,
+0x0000020cc6096c40, 0x0000020cc609da20, 0x0000020cc609e3e0, 0x0000020cc60a25d0,
+0x0000020cc60a5ff0, 0x0000020cc60a71d0, 0x0000020cc61f44c0, 0x0000020cc6200a50,
+0x0000020d0e309270, 0x0000020d0e83d5d0
+}
+
+Java Threads: ( => current thread )
+=>0x0000020ca38cbc30 JavaThread "main" [_thread_in_native, id=6284, stack(0x0000002104b00000,0x0000002104c00000)]
+  0x0000020cc6082b40 JavaThread "Reference Handler" daemon [_thread_blocked, id=10288, stack(0x0000002105200000,0x0000002105300000)]
+  0x0000020cc60839c0 JavaThread "Finalizer" daemon [_thread_blocked, id=10492, stack(0x0000002105300000,0x0000002105400000)]
+  0x0000020cc6096170 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=580, stack(0x0000002105400000,0x0000002105500000)]
+  0x0000020cc6096c40 JavaThread "Attach Listener" daemon [_thread_blocked, id=4852, stack(0x0000002105500000,0x0000002105600000)]
+  0x0000020cc609da20 JavaThread "Service Thread" daemon [_thread_blocked, id=1508, stack(0x0000002105600000,0x0000002105700000)]
+  0x0000020cc609e3e0 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=4256, stack(0x0000002105700000,0x0000002105800000)]
+  0x0000020cc60a25d0 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=7284, stack(0x0000002105800000,0x0000002105900000)]
+  0x0000020cc60a5ff0 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=6632, stack(0x0000002105900000,0x0000002105a00000)]
+  0x0000020cc60a71d0 JavaThread "Sweeper thread" daemon [_thread_blocked, id=3652, stack(0x0000002105a00000,0x0000002105b00000)]
+  0x0000020cc61f44c0 JavaThread "Notification Thread" daemon [_thread_blocked, id=11496, stack(0x0000002105b00000,0x0000002105c00000)]
+  0x0000020cc6200a50 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=3868, stack(0x0000002105d00000,0x0000002105e00000)]
+  0x0000020d0e309270 JavaThread "Thread-0" daemon [_thread_blocked, id=8480, stack(0x0000002106400000,0x0000002106500000)]
+  0x0000020d0e83d5d0 JavaThread "LWJGL3 Timer" daemon [_thread_blocked, id=1608, stack(0x0000002106b00000,0x0000002106c00000)]
+
+Other Threads:
+  0x0000020cc607c7e0 VMThread "VM Thread" [stack: 0x0000002105100000,0x0000002105200000] [id=6404]
+  0x0000020cc61f49a0 WatcherThread [stack: 0x0000002105c00000,0x0000002105d00000] [id=4228]
+  0x0000020ca3936160 GCTaskThread "GC Thread#0" [stack: 0x0000002104c00000,0x0000002104d00000] [id=7824]
+  0x0000020cc62a59c0 GCTaskThread "GC Thread#1" [stack: 0x0000002106800000,0x0000002106900000] [id=9708]
+  0x0000020cc62a6200 GCTaskThread "GC Thread#2" [stack: 0x0000002106900000,0x0000002106a00000] [id=5196]
+  0x0000020cc62a64c0 GCTaskThread "GC Thread#3" [stack: 0x0000002106a00000,0x0000002106b00000] [id=4692]
+  0x0000020ca3947f00 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000002104d00000,0x0000002104e00000] [id=11516]
+  0x0000020ca39490c0 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000002104e00000,0x0000002104f00000] [id=11644]
+  0x0000020cc5d17aa0 ConcurrentGCThread "G1 Refine#0" [stack: 0x0000002104f00000,0x0000002105000000] [id=11200]
+  0x0000020ca397d610 ConcurrentGCThread "G1 Service" [stack: 0x0000002105000000,0x0000002105100000] [id=10760]
+
+Threads with active compile tasks:
+
+VM state: not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x0000000701c00000, size: 4068 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000020cc7000000-0x0000020cc7bb0000-0x0000020cc7bb0000), size 12255232, SharedBaseAddress: 0x0000020cc7000000, ArchiveRelocationMode: 1.
+Compressed class space mapped at: 0x0000020cc8000000-0x0000020d08000000, reserved size: 1073741824
+Narrow klass base: 0x0000020cc7000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CPUs: 4 total, 4 available
+ Memory: 16271M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 2M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 256M
+ Heap Max Capacity: 4068M
+ Pre-touch: Disabled
+ Parallel Workers: 4
+ Concurrent Workers: 1
+ Concurrent Refinement Workers: 4
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 262144K, used 8805K [0x0000000701c00000, 0x0000000800000000)
+  region size 2048K, 5 young (10240K), 1 survivors (2048K)
+ Metaspace       used 6170K, committed 6336K, reserved 1114112K
+  class space    used 412K, committed 512K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x0000000701c00000, 0x0000000701c00000, 0x0000000701e00000|  0%| F|  |TAMS 0x0000000701c00000, 0x0000000701c00000| Untracked 
+|   1|0x0000000701e00000, 0x0000000701e00000, 0x0000000702000000|  0%| F|  |TAMS 0x0000000701e00000, 0x0000000701e00000| Untracked 
+|   2|0x0000000702000000, 0x0000000702000000, 0x0000000702200000|  0%| F|  |TAMS 0x0000000702000000, 0x0000000702000000| Untracked 
+|   3|0x0000000702200000, 0x0000000702200000, 0x0000000702400000|  0%| F|  |TAMS 0x0000000702200000, 0x0000000702200000| Untracked 
+|   4|0x0000000702400000, 0x0000000702400000, 0x0000000702600000|  0%| F|  |TAMS 0x0000000702400000, 0x0000000702400000| Untracked 
+|   5|0x0000000702600000, 0x0000000702600000, 0x0000000702800000|  0%| F|  |TAMS 0x0000000702600000, 0x0000000702600000| Untracked 
+|   6|0x0000000702800000, 0x0000000702800000, 0x0000000702a00000|  0%| F|  |TAMS 0x0000000702800000, 0x0000000702800000| Untracked 
+|   7|0x0000000702a00000, 0x0000000702a00000, 0x0000000702c00000|  0%| F|  |TAMS 0x0000000702a00000, 0x0000000702a00000| Untracked 
+|   8|0x0000000702c00000, 0x0000000702c00000, 0x0000000702e00000|  0%| F|  |TAMS 0x0000000702c00000, 0x0000000702c00000| Untracked 
+|   9|0x0000000702e00000, 0x0000000702e00000, 0x0000000703000000|  0%| F|  |TAMS 0x0000000702e00000, 0x0000000702e00000| Untracked 
+|  10|0x0000000703000000, 0x0000000703000000, 0x0000000703200000|  0%| F|  |TAMS 0x0000000703000000, 0x0000000703000000| Untracked 
+|  11|0x0000000703200000, 0x0000000703200000, 0x0000000703400000|  0%| F|  |TAMS 0x0000000703200000, 0x0000000703200000| Untracked 
+|  12|0x0000000703400000, 0x00000007035e9e00, 0x0000000703600000| 95%| O|  |TAMS 0x0000000703400000, 0x0000000703400000| Untracked 
+|  13|0x0000000703600000, 0x0000000703600000, 0x0000000703800000|  0%| F|  |TAMS 0x0000000703600000, 0x0000000703600000| Untracked 
+|  14|0x0000000703800000, 0x0000000703800000, 0x0000000703a00000|  0%| F|  |TAMS 0x0000000703800000, 0x0000000703800000| Untracked 
+|  15|0x0000000703a00000, 0x0000000703a00000, 0x0000000703c00000|  0%| F|  |TAMS 0x0000000703a00000, 0x0000000703a00000| Untracked 
+|  16|0x0000000703c00000, 0x0000000703c00000, 0x0000000703e00000|  0%| F|  |TAMS 0x0000000703c00000, 0x0000000703c00000| Untracked 
+|  17|0x0000000703e00000, 0x0000000703e00000, 0x0000000704000000|  0%| F|  |TAMS 0x0000000703e00000, 0x0000000703e00000| Untracked 
+|  18|0x0000000704000000, 0x0000000704000000, 0x0000000704200000|  0%| F|  |TAMS 0x0000000704000000, 0x0000000704000000| Untracked 
+|  19|0x0000000704200000, 0x0000000704200000, 0x0000000704400000|  0%| F|  |TAMS 0x0000000704200000, 0x0000000704200000| Untracked 
+|  20|0x0000000704400000, 0x0000000704400000, 0x0000000704600000|  0%| F|  |TAMS 0x0000000704400000, 0x0000000704400000| Untracked 
+|  21|0x0000000704600000, 0x0000000704600000, 0x0000000704800000|  0%| F|  |TAMS 0x0000000704600000, 0x0000000704600000| Untracked 
+|  22|0x0000000704800000, 0x0000000704800000, 0x0000000704a00000|  0%| F|  |TAMS 0x0000000704800000, 0x0000000704800000| Untracked 
+|  23|0x0000000704a00000, 0x0000000704a00000, 0x0000000704c00000|  0%| F|  |TAMS 0x0000000704a00000, 0x0000000704a00000| Untracked 
+|  24|0x0000000704c00000, 0x0000000704c00000, 0x0000000704e00000|  0%| F|  |TAMS 0x0000000704c00000, 0x0000000704c00000| Untracked 
+|  25|0x0000000704e00000, 0x0000000704e00000, 0x0000000705000000|  0%| F|  |TAMS 0x0000000704e00000, 0x0000000704e00000| Untracked 
+|  26|0x0000000705000000, 0x0000000705000000, 0x0000000705200000|  0%| F|  |TAMS 0x0000000705000000, 0x0000000705000000| Untracked 
+|  27|0x0000000705200000, 0x0000000705200000, 0x0000000705400000|  0%| F|  |TAMS 0x0000000705200000, 0x0000000705200000| Untracked 
+|  28|0x0000000705400000, 0x0000000705400000, 0x0000000705600000|  0%| F|  |TAMS 0x0000000705400000, 0x0000000705400000| Untracked 
+|  29|0x0000000705600000, 0x0000000705600000, 0x0000000705800000|  0%| F|  |TAMS 0x0000000705600000, 0x0000000705600000| Untracked 
+|  30|0x0000000705800000, 0x0000000705800000, 0x0000000705a00000|  0%| F|  |TAMS 0x0000000705800000, 0x0000000705800000| Untracked 
+|  31|0x0000000705a00000, 0x0000000705a00000, 0x0000000705c00000|  0%| F|  |TAMS 0x0000000705a00000, 0x0000000705a00000| Untracked 
+|  32|0x0000000705c00000, 0x0000000705c00000, 0x0000000705e00000|  0%| F|  |TAMS 0x0000000705c00000, 0x0000000705c00000| Untracked 
+|  33|0x0000000705e00000, 0x0000000705e00000, 0x0000000706000000|  0%| F|  |TAMS 0x0000000705e00000, 0x0000000705e00000| Untracked 
+|  34|0x0000000706000000, 0x0000000706000000, 0x0000000706200000|  0%| F|  |TAMS 0x0000000706000000, 0x0000000706000000| Untracked 
+|  35|0x0000000706200000, 0x0000000706200000, 0x0000000706400000|  0%| F|  |TAMS 0x0000000706200000, 0x0000000706200000| Untracked 
+|  36|0x0000000706400000, 0x0000000706400000, 0x0000000706600000|  0%| F|  |TAMS 0x0000000706400000, 0x0000000706400000| Untracked 
+|  37|0x0000000706600000, 0x0000000706600000, 0x0000000706800000|  0%| F|  |TAMS 0x0000000706600000, 0x0000000706600000| Untracked 
+|  38|0x0000000706800000, 0x0000000706800000, 0x0000000706a00000|  0%| F|  |TAMS 0x0000000706800000, 0x0000000706800000| Untracked 
+|  39|0x0000000706a00000, 0x0000000706a00000, 0x0000000706c00000|  0%| F|  |TAMS 0x0000000706a00000, 0x0000000706a00000| Untracked 
+|  40|0x0000000706c00000, 0x0000000706c00000, 0x0000000706e00000|  0%| F|  |TAMS 0x0000000706c00000, 0x0000000706c00000| Untracked 
+|  41|0x0000000706e00000, 0x0000000706e00000, 0x0000000707000000|  0%| F|  |TAMS 0x0000000706e00000, 0x0000000706e00000| Untracked 
+|  42|0x0000000707000000, 0x0000000707000000, 0x0000000707200000|  0%| F|  |TAMS 0x0000000707000000, 0x0000000707000000| Untracked 
+|  43|0x0000000707200000, 0x0000000707200000, 0x0000000707400000|  0%| F|  |TAMS 0x0000000707200000, 0x0000000707200000| Untracked 
+|  44|0x0000000707400000, 0x0000000707400000, 0x0000000707600000|  0%| F|  |TAMS 0x0000000707400000, 0x0000000707400000| Untracked 
+|  45|0x0000000707600000, 0x0000000707600000, 0x0000000707800000|  0%| F|  |TAMS 0x0000000707600000, 0x0000000707600000| Untracked 
+|  46|0x0000000707800000, 0x0000000707800000, 0x0000000707a00000|  0%| F|  |TAMS 0x0000000707800000, 0x0000000707800000| Untracked 
+|  47|0x0000000707a00000, 0x0000000707a00000, 0x0000000707c00000|  0%| F|  |TAMS 0x0000000707a00000, 0x0000000707a00000| Untracked 
+|  48|0x0000000707c00000, 0x0000000707c00000, 0x0000000707e00000|  0%| F|  |TAMS 0x0000000707c00000, 0x0000000707c00000| Untracked 
+|  49|0x0000000707e00000, 0x0000000707e00000, 0x0000000708000000|  0%| F|  |TAMS 0x0000000707e00000, 0x0000000707e00000| Untracked 
+|  50|0x0000000708000000, 0x0000000708000000, 0x0000000708200000|  0%| F|  |TAMS 0x0000000708000000, 0x0000000708000000| Untracked 
+|  51|0x0000000708200000, 0x0000000708200000, 0x0000000708400000|  0%| F|  |TAMS 0x0000000708200000, 0x0000000708200000| Untracked 
+|  52|0x0000000708400000, 0x0000000708400000, 0x0000000708600000|  0%| F|  |TAMS 0x0000000708400000, 0x0000000708400000| Untracked 
+|  53|0x0000000708600000, 0x0000000708600000, 0x0000000708800000|  0%| F|  |TAMS 0x0000000708600000, 0x0000000708600000| Untracked 
+|  54|0x0000000708800000, 0x0000000708800000, 0x0000000708a00000|  0%| F|  |TAMS 0x0000000708800000, 0x0000000708800000| Untracked 
+|  55|0x0000000708a00000, 0x0000000708a00000, 0x0000000708c00000|  0%| F|  |TAMS 0x0000000708a00000, 0x0000000708a00000| Untracked 
+|  56|0x0000000708c00000, 0x0000000708c00000, 0x0000000708e00000|  0%| F|  |TAMS 0x0000000708c00000, 0x0000000708c00000| Untracked 
+|  57|0x0000000708e00000, 0x0000000708e00000, 0x0000000709000000|  0%| F|  |TAMS 0x0000000708e00000, 0x0000000708e00000| Untracked 
+|  58|0x0000000709000000, 0x0000000709000000, 0x0000000709200000|  0%| F|  |TAMS 0x0000000709000000, 0x0000000709000000| Untracked 
+|  59|0x0000000709200000, 0x0000000709200000, 0x0000000709400000|  0%| F|  |TAMS 0x0000000709200000, 0x0000000709200000| Untracked 
+|  60|0x0000000709400000, 0x0000000709400000, 0x0000000709600000|  0%| F|  |TAMS 0x0000000709400000, 0x0000000709400000| Untracked 
+|  61|0x0000000709600000, 0x0000000709600000, 0x0000000709800000|  0%| F|  |TAMS 0x0000000709600000, 0x0000000709600000| Untracked 
+|  62|0x0000000709800000, 0x0000000709800000, 0x0000000709a00000|  0%| F|  |TAMS 0x0000000709800000, 0x0000000709800000| Untracked 
+|  63|0x0000000709a00000, 0x0000000709a00000, 0x0000000709c00000|  0%| F|  |TAMS 0x0000000709a00000, 0x0000000709a00000| Untracked 
+|  64|0x0000000709c00000, 0x0000000709c00000, 0x0000000709e00000|  0%| F|  |TAMS 0x0000000709c00000, 0x0000000709c00000| Untracked 
+|  65|0x0000000709e00000, 0x0000000709e00000, 0x000000070a000000|  0%| F|  |TAMS 0x0000000709e00000, 0x0000000709e00000| Untracked 
+|  66|0x000000070a000000, 0x000000070a000000, 0x000000070a200000|  0%| F|  |TAMS 0x000000070a000000, 0x000000070a000000| Untracked 
+|  67|0x000000070a200000, 0x000000070a200000, 0x000000070a400000|  0%| F|  |TAMS 0x000000070a200000, 0x000000070a200000| Untracked 
+|  68|0x000000070a400000, 0x000000070a400000, 0x000000070a600000|  0%| F|  |TAMS 0x000000070a400000, 0x000000070a400000| Untracked 
+|  69|0x000000070a600000, 0x000000070a600000, 0x000000070a800000|  0%| F|  |TAMS 0x000000070a600000, 0x000000070a600000| Untracked 
+|  70|0x000000070a800000, 0x000000070a800000, 0x000000070aa00000|  0%| F|  |TAMS 0x000000070a800000, 0x000000070a800000| Untracked 
+|  71|0x000000070aa00000, 0x000000070aa00000, 0x000000070ac00000|  0%| F|  |TAMS 0x000000070aa00000, 0x000000070aa00000| Untracked 
+|  72|0x000000070ac00000, 0x000000070ac00000, 0x000000070ae00000|  0%| F|  |TAMS 0x000000070ac00000, 0x000000070ac00000| Untracked 
+|  73|0x000000070ae00000, 0x000000070ae00000, 0x000000070b000000|  0%| F|  |TAMS 0x000000070ae00000, 0x000000070ae00000| Untracked 
+|  74|0x000000070b000000, 0x000000070b000000, 0x000000070b200000|  0%| F|  |TAMS 0x000000070b000000, 0x000000070b000000| Untracked 
+|  75|0x000000070b200000, 0x000000070b200000, 0x000000070b400000|  0%| F|  |TAMS 0x000000070b200000, 0x000000070b200000| Untracked 
+|  76|0x000000070b400000, 0x000000070b400000, 0x000000070b600000|  0%| F|  |TAMS 0x000000070b400000, 0x000000070b400000| Untracked 
+|  77|0x000000070b600000, 0x000000070b600000, 0x000000070b800000|  0%| F|  |TAMS 0x000000070b600000, 0x000000070b600000| Untracked 
+|  78|0x000000070b800000, 0x000000070b800000, 0x000000070ba00000|  0%| F|  |TAMS 0x000000070b800000, 0x000000070b800000| Untracked 
+|  79|0x000000070ba00000, 0x000000070ba00000, 0x000000070bc00000|  0%| F|  |TAMS 0x000000070ba00000, 0x000000070ba00000| Untracked 
+|  80|0x000000070bc00000, 0x000000070bc00000, 0x000000070be00000|  0%| F|  |TAMS 0x000000070bc00000, 0x000000070bc00000| Untracked 
+|  81|0x000000070be00000, 0x000000070be00000, 0x000000070c000000|  0%| F|  |TAMS 0x000000070be00000, 0x000000070be00000| Untracked 
+|  82|0x000000070c000000, 0x000000070c000000, 0x000000070c200000|  0%| F|  |TAMS 0x000000070c000000, 0x000000070c000000| Untracked 
+|  83|0x000000070c200000, 0x000000070c200000, 0x000000070c400000|  0%| F|  |TAMS 0x000000070c200000, 0x000000070c200000| Untracked 
+|  84|0x000000070c400000, 0x000000070c400000, 0x000000070c600000|  0%| F|  |TAMS 0x000000070c400000, 0x000000070c400000| Untracked 
+|  85|0x000000070c600000, 0x000000070c600000, 0x000000070c800000|  0%| F|  |TAMS 0x000000070c600000, 0x000000070c600000| Untracked 
+|  86|0x000000070c800000, 0x000000070c800000, 0x000000070ca00000|  0%| F|  |TAMS 0x000000070c800000, 0x000000070c800000| Untracked 
+|  87|0x000000070ca00000, 0x000000070ca00000, 0x000000070cc00000|  0%| F|  |TAMS 0x000000070ca00000, 0x000000070ca00000| Untracked 
+|  88|0x000000070cc00000, 0x000000070cc00000, 0x000000070ce00000|  0%| F|  |TAMS 0x000000070cc00000, 0x000000070cc00000| Untracked 
+|  89|0x000000070ce00000, 0x000000070ce00000, 0x000000070d000000|  0%| F|  |TAMS 0x000000070ce00000, 0x000000070ce00000| Untracked 
+|  90|0x000000070d000000, 0x000000070d000000, 0x000000070d200000|  0%| F|  |TAMS 0x000000070d000000, 0x000000070d000000| Untracked 
+|  91|0x000000070d200000, 0x000000070d200000, 0x000000070d400000|  0%| F|  |TAMS 0x000000070d200000, 0x000000070d200000| Untracked 
+|  92|0x000000070d400000, 0x000000070d400000, 0x000000070d600000|  0%| F|  |TAMS 0x000000070d400000, 0x000000070d400000| Untracked 
+|  93|0x000000070d600000, 0x000000070d600000, 0x000000070d800000|  0%| F|  |TAMS 0x000000070d600000, 0x000000070d600000| Untracked 
+|  94|0x000000070d800000, 0x000000070d800000, 0x000000070da00000|  0%| F|  |TAMS 0x000000070d800000, 0x000000070d800000| Untracked 
+|  95|0x000000070da00000, 0x000000070da00000, 0x000000070dc00000|  0%| F|  |TAMS 0x000000070da00000, 0x000000070da00000| Untracked 
+|  96|0x000000070dc00000, 0x000000070dc00000, 0x000000070de00000|  0%| F|  |TAMS 0x000000070dc00000, 0x000000070dc00000| Untracked 
+|  97|0x000000070de00000, 0x000000070de00000, 0x000000070e000000|  0%| F|  |TAMS 0x000000070de00000, 0x000000070de00000| Untracked 
+|  98|0x000000070e000000, 0x000000070e000000, 0x000000070e200000|  0%| F|  |TAMS 0x000000070e000000, 0x000000070e000000| Untracked 
+|  99|0x000000070e200000, 0x000000070e200000, 0x000000070e400000|  0%| F|  |TAMS 0x000000070e200000, 0x000000070e200000| Untracked 
+| 100|0x000000070e400000, 0x000000070e400000, 0x000000070e600000|  0%| F|  |TAMS 0x000000070e400000, 0x000000070e400000| Untracked 
+| 101|0x000000070e600000, 0x000000070e600000, 0x000000070e800000|  0%| F|  |TAMS 0x000000070e600000, 0x000000070e600000| Untracked 
+| 102|0x000000070e800000, 0x000000070e800000, 0x000000070ea00000|  0%| F|  |TAMS 0x000000070e800000, 0x000000070e800000| Untracked 
+| 103|0x000000070ea00000, 0x000000070ea00000, 0x000000070ec00000|  0%| F|  |TAMS 0x000000070ea00000, 0x000000070ea00000| Untracked 
+| 104|0x000000070ec00000, 0x000000070ec00000, 0x000000070ee00000|  0%| F|  |TAMS 0x000000070ec00000, 0x000000070ec00000| Untracked 
+| 105|0x000000070ee00000, 0x000000070ee00000, 0x000000070f000000|  0%| F|  |TAMS 0x000000070ee00000, 0x000000070ee00000| Untracked 
+| 106|0x000000070f000000, 0x000000070f000000, 0x000000070f200000|  0%| F|  |TAMS 0x000000070f000000, 0x000000070f000000| Untracked 
+| 107|0x000000070f200000, 0x000000070f200000, 0x000000070f400000|  0%| F|  |TAMS 0x000000070f200000, 0x000000070f200000| Untracked 
+| 108|0x000000070f400000, 0x000000070f400000, 0x000000070f600000|  0%| F|  |TAMS 0x000000070f400000, 0x000000070f400000| Untracked 
+| 109|0x000000070f600000, 0x000000070f600000, 0x000000070f800000|  0%| F|  |TAMS 0x000000070f600000, 0x000000070f600000| Untracked 
+| 110|0x000000070f800000, 0x000000070f800000, 0x000000070fa00000|  0%| F|  |TAMS 0x000000070f800000, 0x000000070f800000| Untracked 
+| 111|0x000000070fa00000, 0x000000070fa00000, 0x000000070fc00000|  0%| F|  |TAMS 0x000000070fa00000, 0x000000070fa00000| Untracked 
+| 112|0x000000070fc00000, 0x000000070fc00000, 0x000000070fe00000|  0%| F|  |TAMS 0x000000070fc00000, 0x000000070fc00000| Untracked 
+| 113|0x000000070fe00000, 0x000000070fe00000, 0x0000000710000000|  0%| F|  |TAMS 0x000000070fe00000, 0x000000070fe00000| Untracked 
+| 114|0x0000000710000000, 0x0000000710000000, 0x0000000710200000|  0%| F|  |TAMS 0x0000000710000000, 0x0000000710000000| Untracked 
+| 115|0x0000000710200000, 0x0000000710200000, 0x0000000710400000|  0%| F|  |TAMS 0x0000000710200000, 0x0000000710200000| Untracked 
+| 116|0x0000000710400000, 0x0000000710400000, 0x0000000710600000|  0%| F|  |TAMS 0x0000000710400000, 0x0000000710400000| Untracked 
+| 117|0x0000000710600000, 0x0000000710600000, 0x0000000710800000|  0%| F|  |TAMS 0x0000000710600000, 0x0000000710600000| Untracked 
+| 118|0x0000000710800000, 0x0000000710800000, 0x0000000710a00000|  0%| F|  |TAMS 0x0000000710800000, 0x0000000710800000| Untracked 
+| 119|0x0000000710a00000, 0x0000000710aaf980, 0x0000000710c00000| 34%| S|CS|TAMS 0x0000000710a00000, 0x0000000710a00000| Complete 
+| 120|0x0000000710c00000, 0x0000000710c00000, 0x0000000710e00000|  0%| F|  |TAMS 0x0000000710c00000, 0x0000000710c00000| Untracked 
+| 121|0x0000000710e00000, 0x0000000710e00000, 0x0000000711000000|  0%| F|  |TAMS 0x0000000710e00000, 0x0000000710e00000| Untracked 
+| 122|0x0000000711000000, 0x0000000711000000, 0x0000000711200000|  0%| F|  |TAMS 0x0000000711000000, 0x0000000711000000| Untracked 
+| 123|0x0000000711200000, 0x0000000711200000, 0x0000000711400000|  0%| F|  |TAMS 0x0000000711200000, 0x0000000711200000| Untracked 
+| 124|0x0000000711400000, 0x0000000711500000, 0x0000000711600000| 50%| E|  |TAMS 0x0000000711400000, 0x0000000711400000| Complete 
+| 125|0x0000000711600000, 0x0000000711800000, 0x0000000711800000|100%| E|CS|TAMS 0x0000000711600000, 0x0000000711600000| Complete 
+| 126|0x0000000711800000, 0x0000000711a00000, 0x0000000711a00000|100%| E|CS|TAMS 0x0000000711800000, 0x0000000711800000| Complete 
+| 127|0x0000000711a00000, 0x0000000711c00000, 0x0000000711c00000|100%| E|CS|TAMS 0x0000000711a00000, 0x0000000711a00000| Complete 
+
+Card table byte_map: [0x0000020cbac20000,0x0000020cbb420000] _byte_map_base: 0x0000020cb7412000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x0000020ca3937790, (CMBitMap*) 0x0000020ca39377d0
+ Prev Bits: [0x0000020cbbc20000, 0x0000020cbfbb0000)
+ Next Bits: [0x0000020cbfbb0000, 0x0000020cc3b40000)
+
+Polling page: 0x0000020ca1700000
+
+Metaspace:
+
+Usage:
+  Non-class:      5.62 MB used.
+      Class:    412.88 KB used.
+       Both:      6.03 MB used.
+
+Virtual space:
+  Non-class space:       64.00 MB reserved,       5.69 MB (  9%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,     512.00 KB ( <1%) committed,  1 nodes.
+             Both:        1.06 GB reserved,       6.19 MB ( <1%) committed. 
+
+Chunk freelists:
+   Non-Class:  8.28 MB
+       Class:  15.48 MB
+        Both:  23.77 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 21.00 MB
+CDS: on
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 8388608.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+ - handle_deallocations: 1.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 0.
+num_arena_births: 66.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 97.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 0.
+num_chunks_taken_from_freelist: 225.
+num_chunk_merges: 0.
+num_chunk_splits: 160.
+num_chunks_enlarged: 130.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120000Kb used=707Kb max_used=707Kb free=119292Kb
+ bounds [0x0000020cb2ef0000, 0x0000020cb3160000, 0x0000020cba420000]
+CodeHeap 'profiled nmethods': size=120000Kb used=2503Kb max_used=2503Kb free=117497Kb
+ bounds [0x0000020cab420000, 0x0000020cab6a0000, 0x0000020cb2950000]
+CodeHeap 'non-nmethods': size=5760Kb used=1640Kb max_used=1703Kb free=4119Kb
+ bounds [0x0000020cb2950000, 0x0000020cb2bc0000, 0x0000020cb2ef0000]
+ total_blobs=2456 nmethods=1375 adapters=994
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 8.700 Thread 0x0000020cc60a25d0 1366       4       java.nio.Buffer::remaining (20 bytes)
+Event: 8.701 Thread 0x0000020cc60a25d0 nmethod 1366 0x0000020cb2f96c90 code [0x0000020cb2f96e00, 0x0000020cb2f96e98]
+Event: 8.716 Thread 0x0000020cc60a25d0 1367       4       java.net.URLStreamHandler::setURL (73 bytes)
+Event: 8.749 Thread 0x0000020cc60a25d0 nmethod 1367 0x0000020cb2f96f90 code [0x0000020cb2f97140, 0x0000020cb2f97de8]
+Event: 8.749 Thread 0x0000020cc60a25d0 1368   !   4       java.net.URL::set (114 bytes)
+Event: 8.758 Thread 0x0000020cc60a25d0 nmethod 1368 0x0000020cb2f98210 code [0x0000020cb2f98380, 0x0000020cb2f98d58]
+Event: 8.900 Thread 0x0000020cc60a25d0 1369       4       com.badlogic.gdx.math.Rectangle::overlaps (74 bytes)
+Event: 8.901 Thread 0x0000020cc60a25d0 nmethod 1369 0x0000020cb2f98e90 code [0x0000020cb2f99000, 0x0000020cb2f990d8]
+Event: 9.001 Thread 0x0000020cc60a5ff0 1370       3       com.cosas.estelabichos.Main::render (870 bytes)
+Event: 9.008 Thread 0x0000020cc60a5ff0 nmethod 1370 0x0000020cab688e90 code [0x0000020cab6896e0, 0x0000020cab68d8d8]
+Event: 9.451 Thread 0x0000020cc60a25d0 1371       4       java.io.WinNTFileSystem::prefixLength (91 bytes)
+Event: 9.458 Thread 0x0000020cc60a25d0 nmethod 1371 0x0000020cb2f99190 code [0x0000020cb2f99340, 0x0000020cb2f99768]
+Event: 9.567 Thread 0x0000020cc60a25d0 1372       4       java.net.URLStreamHandler::parseURL (1201 bytes)
+Event: 9.583 Thread 0x0000020cc60a5ff0 1374       3       com.badlogic.gdx.math.Frustum::update (263 bytes)
+Event: 9.585 Thread 0x0000020cc60a5ff0 nmethod 1374 0x0000020cab68f390 code [0x0000020cab68f620, 0x0000020cab68ff78]
+Event: 9.585 Thread 0x0000020cc60a5ff0 1373       3       com.badlogic.gdx.math.Matrix4::det (444 bytes)
+Event: 9.585 Thread 0x0000020cc60a5ff0 nmethod 1373 0x0000020cab690690 code [0x0000020cab690840, 0x0000020cab690c78]
+Event: 9.585 Thread 0x0000020cc60a5ff0 1375       3       com.badlogic.gdx.graphics.g2d.SpriteBatch::setupMatrices (80 bytes)
+Event: 9.586 Thread 0x0000020cc60a5ff0 nmethod 1375 0x0000020cab690e10 code [0x0000020cab691080, 0x0000020cab691818]
+Event: 9.665 Thread 0x0000020cc60a25d0 nmethod 1372 0x0000020cb2f99b90 code [0x0000020cb2f99fa0, 0x0000020cb2f9e318]
+
+GC Heap History (4 events):
+Event: 0.524 GC heap before
+{Heap before GC invocations=0 (full 0):
+ garbage-first heap   total 262144K, used 12288K [0x0000000701c00000, 0x0000000800000000)
+  region size 2048K, 6 young (12288K), 0 survivors (0K)
+ Metaspace       used 3900K, committed 4032K, reserved 1114112K
+  class space    used 315K, committed 384K, reserved 1048576K
+}
+Event: 0.526 GC heap after
+{Heap after GC invocations=1 (full 0):
+ garbage-first heap   total 262144K, used 2048K [0x0000000701c00000, 0x0000000800000000)
+  region size 2048K, 1 young (2048K), 1 survivors (2048K)
+ Metaspace       used 3900K, committed 4032K, reserved 1114112K
+  class space    used 315K, committed 384K, reserved 1048576K
+}
+Event: 6.094 GC heap before
+{Heap before GC invocations=1 (full 0):
+ garbage-first heap   total 262144K, used 40960K [0x0000000701c00000, 0x0000000800000000)
+  region size 2048K, 8 young (16384K), 1 survivors (2048K)
+ Metaspace       used 6144K, committed 6336K, reserved 1114112K
+  class space    used 412K, committed 512K, reserved 1048576K
+}
+Event: 6.099 GC heap after
+{Heap after GC invocations=2 (full 0):
+ garbage-first heap   total 262144K, used 2661K [0x0000000701c00000, 0x0000000800000000)
+  region size 2048K, 1 young (2048K), 1 survivors (2048K)
+ Metaspace       used 6144K, committed 6336K, reserved 1114112K
+  class space    used 412K, committed 512K, reserved 1048576K
+}
+
+Dll operation events (9 events):
+Event: 0.006 Loaded shared library C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\java.dll
+Event: 0.021 Loaded shared library C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\jsvml.dll
+Event: 0.083 Loaded shared library C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\net.dll
+Event: 0.084 Loaded shared library C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\nio.dll
+Event: 0.086 Loaded shared library C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\zip.dll
+Event: 0.138 Loaded shared library C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\jimage.dll
+Event: 0.144 Loaded shared library C:\ProgramData\libGDX-temp\libgdxUser_1933691140_GDX1_13_1\c39de338\gdx64.dll
+Event: 0.221 Loaded shared library C:\Users\ALUMNO\AppData\Local\Temp\lwjgl_ALUMNO\3.3.3+5\x64\lwjgl.dll
+Event: 0.539 Loaded shared library C:\Users\ALUMNO\AppData\Local\Temp\lwjgl_ALUMNO\3.3.3+5\x64\lwjgl_opengl.dll
+
+Deoptimization events (20 events):
+Event: 6.027 Thread 0x0000020ca38cbc30 Uncommon trap: trap_request=0xffffff45 fr.pc=0x0000020cb2f5e410 relative=0x0000000000000090
+Event: 6.027 Thread 0x0000020ca38cbc30 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000020cb2f5e410 method=com.badlogic.gdx.math.Rectangle.overlaps(Lcom/badlogic/gdx/math/Rectangle;)Z @ 14 c2
+Event: 6.027 Thread 0x0000020ca38cbc30 DEOPT PACKING pc=0x0000020cb2f5e410 sp=0x0000002104bff260
+Event: 6.027 Thread 0x0000020ca38cbc30 DEOPT UNPACKING pc=0x0000020cb29a69a3 sp=0x0000002104bff1f0 mode 2
+Event: 6.044 Thread 0x0000020ca38cbc30 DEOPT PACKING pc=0x0000020cab66378d sp=0x0000002104bff290
+Event: 6.044 Thread 0x0000020ca38cbc30 DEOPT UNPACKING pc=0x0000020cb29a7143 sp=0x0000002104bfe840 mode 0
+Event: 6.445 Thread 0x0000020ca38cbc30 DEOPT PACKING pc=0x0000020cab66378d sp=0x0000002104bff290
+Event: 6.445 Thread 0x0000020ca38cbc30 DEOPT UNPACKING pc=0x0000020cb29a7143 sp=0x0000002104bfe840 mode 0
+Event: 6.862 Thread 0x0000020ca38cbc30 DEOPT PACKING pc=0x0000020cab66378d sp=0x0000002104bff290
+Event: 6.862 Thread 0x0000020ca38cbc30 DEOPT UNPACKING pc=0x0000020cb29a7143 sp=0x0000002104bfe840 mode 0
+Event: 7.283 Thread 0x0000020ca38cbc30 DEOPT PACKING pc=0x0000020cab66378d sp=0x0000002104bff290
+Event: 7.283 Thread 0x0000020ca38cbc30 DEOPT UNPACKING pc=0x0000020cb29a7143 sp=0x0000002104bfe840 mode 0
+Event: 7.697 Thread 0x0000020ca38cbc30 DEOPT PACKING pc=0x0000020cab66378d sp=0x0000002104bff290
+Event: 7.697 Thread 0x0000020ca38cbc30 DEOPT UNPACKING pc=0x0000020cb29a7143 sp=0x0000002104bfe840 mode 0
+Event: 8.985 Thread 0x0000020ca38cbc30 Uncommon trap: trap_request=0xffffff45 fr.pc=0x0000020cb2f8c1e4 relative=0x0000000000004ae4
+Event: 8.985 Thread 0x0000020ca38cbc30 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000020cb2f8c1e4 method=com.cosas.estelabichos.Main.render()V @ 655 c2
+Event: 8.985 Thread 0x0000020ca38cbc30 DEOPT PACKING pc=0x0000020cb2f8c1e4 sp=0x0000002104bff330
+Event: 8.985 Thread 0x0000020ca38cbc30 DEOPT UNPACKING pc=0x0000020cb29a69a3 sp=0x0000002104bff348 mode 2
+Event: 9.170 Thread 0x0000020ca38cbc30 DEOPT PACKING pc=0x0000020cab68cf0d sp=0x0000002104bff290
+Event: 9.170 Thread 0x0000020ca38cbc30 DEOPT UNPACKING pc=0x0000020cb29a7143 sp=0x0000002104bfe840 mode 0
+
+Classes loaded (20 events):
+Event: 0.452 Loading class java/util/concurrent/locks/Condition done
+Event: 0.452 Loading class java/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject done
+Event: 0.517 Loading class java/io/UnsupportedEncodingException
+Event: 0.518 Loading class java/io/UnsupportedEncodingException done
+Event: 0.519 Loading class sun/net/ProgressMonitor
+Event: 0.519 Loading class sun/net/ProgressMonitor done
+Event: 0.519 Loading class sun/net/DefaultProgressMeteringPolicy
+Event: 0.519 Loading class sun/net/ProgressMeteringPolicy
+Event: 0.519 Loading class sun/net/ProgressMeteringPolicy done
+Event: 0.519 Loading class sun/net/DefaultProgressMeteringPolicy done
+Event: 0.592 Loading class java/lang/NumberFormatException
+Event: 0.592 Loading class java/lang/NumberFormatException done
+Event: 0.634 Loading class java/util/NoSuchElementException
+Event: 0.634 Loading class java/util/NoSuchElementException done
+Event: 0.638 Loading class java/util/regex/Pattern$1
+Event: 0.638 Loading class java/util/regex/Pattern$1 done
+Event: 1.509 Loading class java/lang/SecurityException
+Event: 1.509 Loading class java/lang/SecurityException done
+Event: 1.509 Loading class java/lang/reflect/InvocationTargetException
+Event: 1.509 Loading class java/lang/reflect/InvocationTargetException done
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 0.219 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x00000007114cac58}> (0x00000007114cac58) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.219 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x00000007114cb1b0}> (0x00000007114cb1b0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.269 Thread 0x0000020ca38cbc30 Exception <a 'java/lang/NoSuchMethodError'{0x000000071159abe8}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object, int, long)'> (0x000000071159abe8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 0.270 Thread 0x0000020ca38cbc30 Exception <a 'java/lang/NoSuchMethodError'{0x00000007115a04b0}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, int)'> (0x00000007115a04b0) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 0.272 Thread 0x0000020ca38cbc30 Exception <a 'java/lang/NoSuchMethodError'{0x00000007115b5150}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object, long, long)'> (0x00000007115b5150) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 0.273 Thread 0x0000020ca38cbc30 Exception <a 'java/lang/NoSuchMethodError'{0x00000007115bb620}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, java.lang.Object, long)'> (0x00000007115bb620) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 0.273 Thread 0x0000020ca38cbc30 Exception <a 'java/lang/NoSuchMethodError'{0x00000007115bf668}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, long, java.lang.Object)'> (0x00000007115bf668) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 0.274 Thread 0x0000020ca38cbc30 Exception <a 'java/lang/NoSuchMethodError'{0x00000007115c6de8}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object, java.lang.Object, java.lang.Object, long)'> (0x00000007115c6de8) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 0.291 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x000000071127b478}> (0x000000071127b478) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.291 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x000000071127b818}> (0x000000071127b818) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.320 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x00000007113426f8}> (0x00000007113426f8) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.320 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x0000000711342a68}> (0x0000000711342a68) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.368 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x0000000711011ed8}> (0x0000000711011ed8) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.368 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x0000000711012260}> (0x0000000711012260) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.438 Thread 0x0000020ca38cbc30 Exception <a 'java/lang/NoSuchMethodError'{0x0000000711061648}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.newInvokeSpecial(java.lang.Object, long)'> (0x0000000711061648) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 0.528 Thread 0x0000020ca38cbc30 Exception <a 'java/lang/NoSuchMethodError'{0x0000000711a11030}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, long)'> (0x0000000711a11030) 
+thrown [s\src\hotspot\share\interpreter\linkResolver.cpp, line 759]
+Event: 0.538 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x0000000711a4c9a0}> (0x0000000711a4c9a0) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.538 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x0000000711a4cd50}> (0x0000000711a4cd50) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.542 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x0000000711a5d990}> (0x0000000711a5d990) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+Event: 0.542 Thread 0x0000020ca38cbc30 Exception <a 'sun/nio/fs/WindowsException'{0x0000000711a5dc78}> (0x0000000711a5dc78) 
+thrown [s\src\hotspot\share\prims\jni.cpp, line 516]
+
+VM Operations (20 events):
+Event: 0.194 Executing VM operation: HandshakeAllThreads
+Event: 0.194 Executing VM operation: HandshakeAllThreads done
+Event: 0.229 Executing VM operation: HandshakeAllThreads
+Event: 0.229 Executing VM operation: HandshakeAllThreads done
+Event: 0.524 Executing VM operation: G1CollectForAllocation
+Event: 0.526 Executing VM operation: G1CollectForAllocation done
+Event: 0.592 Executing VM operation: HandshakeAllThreads
+Event: 0.592 Executing VM operation: HandshakeAllThreads done
+Event: 1.605 Executing VM operation: Cleanup
+Event: 1.605 Executing VM operation: Cleanup done
+Event: 2.606 Executing VM operation: Cleanup
+Event: 2.606 Executing VM operation: Cleanup done
+Event: 3.606 Executing VM operation: Cleanup
+Event: 3.606 Executing VM operation: Cleanup done
+Event: 5.606 Executing VM operation: Cleanup
+Event: 5.606 Executing VM operation: Cleanup done
+Event: 6.094 Executing VM operation: G1CollectForAllocation
+Event: 6.099 Executing VM operation: G1CollectForAllocation done
+Event: 8.101 Executing VM operation: Cleanup
+Event: 8.101 Executing VM operation: Cleanup done
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (16 events):
+Event: 0.021 Thread 0x0000020ca38cbc30 Thread added: 0x0000020ca38cbc30
+Event: 0.023 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc6082b40
+Event: 0.023 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc60839c0
+Event: 0.030 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc6096170
+Event: 0.030 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc6096c40
+Event: 0.030 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc609da20
+Event: 0.030 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc609e3e0
+Event: 0.031 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc60a25d0
+Event: 0.031 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc60a5ff0
+Event: 0.031 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc60a71d0
+Event: 0.075 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc61f44c0
+Event: 0.078 Thread 0x0000020ca38cbc30 Thread added: 0x0000020cc6200a50
+Event: 0.448 Thread 0x0000020ca38cbc30 Thread added: 0x0000020d0e309270
+Event: 0.640 Thread 0x0000020cc60a5ff0 Thread added: 0x0000020d0e7de880
+Event: 0.842 Thread 0x0000020d0e7de880 Thread exited: 0x0000020d0e7de880
+Event: 1.519 Thread 0x0000020ca38cbc30 Thread added: 0x0000020d0e83d5d0
+
+
+Dynamic libraries:
+0x00007ff682930000 - 0x00007ff68293e000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\java.exe
+0x00007ff9b8d30000 - 0x00007ff9b8f28000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff9b6de0000 - 0x00007ff9b6ea2000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ff9b6840000 - 0x00007ff9b6b36000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ff9b6bc0000 - 0x00007ff9b6cc0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ff9968c0000 - 0x00007ff9968d7000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\jli.dll
+0x00007ff996a40000 - 0x00007ff996a5e000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\VCRUNTIME140.dll
+0x00007ff9b83f0000 - 0x00007ff9b858d000 	C:\Windows\System32\USER32.dll
+0x00007ff9a0750000 - 0x00007ff9a09ea000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.5915_none_60b4b9d171f9c7c7\COMCTL32.dll
+0x00007ff9b6b90000 - 0x00007ff9b6bb2000 	C:\Windows\System32\win32u.dll
+0x00007ff9b87f0000 - 0x00007ff9b888e000 	C:\Windows\System32\msvcrt.dll
+0x00007ff9b76c0000 - 0x00007ff9b76eb000 	C:\Windows\System32\GDI32.dll
+0x00007ff9b6510000 - 0x00007ff9b6629000 	C:\Windows\System32\gdi32full.dll
+0x00007ff9b6470000 - 0x00007ff9b650d000 	C:\Windows\System32\msvcp_win.dll
+0x00007ff9b73d0000 - 0x00007ff9b73ff000 	C:\Windows\System32\IMM32.DLL
+0x00007ff9b33b0000 - 0x00007ff9b33bc000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\vcruntime140_1.dll
+0x00007ff995d60000 - 0x00007ff995ded000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\msvcp140.dll
+0x00007ff96f110000 - 0x00007ff96fd7b000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\server\jvm.dll
+0x00007ff9b8670000 - 0x00007ff9b8721000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ff9b8970000 - 0x00007ff9b8a0f000 	C:\Windows\System32\sechost.dll
+0x00007ff9b8a10000 - 0x00007ff9b8b33000 	C:\Windows\System32\RPCRT4.dll
+0x00007ff9b6810000 - 0x00007ff9b6837000 	C:\Windows\System32\bcrypt.dll
+0x00007ff9b88f0000 - 0x00007ff9b895b000 	C:\Windows\System32\WS2_32.dll
+0x00007ff9b6170000 - 0x00007ff9b61bb000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ff9abf50000 - 0x00007ff9abf77000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ff9b1860000 - 0x00007ff9b186a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ff9b6150000 - 0x00007ff9b6162000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ff9b4c30000 - 0x00007ff9b4c42000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ff9b16f0000 - 0x00007ff9b16fa000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\jimage.dll
+0x00007ff9b49c0000 - 0x00007ff9b4bc1000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ff9b12c0000 - 0x00007ff9b12f4000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ff9b6cc0000 - 0x00007ff9b6d42000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ff996880000 - 0x00007ff9968a5000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\java.dll
+0x00007ff9871b0000 - 0x00007ff987287000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\jsvml.dll
+0x00007ff9b7810000 - 0x00007ff9b7f7e000 	C:\Windows\System32\SHELL32.dll
+0x00007ff9b4210000 - 0x00007ff9b49b4000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ff9b8090000 - 0x00007ff9b83e3000 	C:\Windows\System32\combase.dll
+0x00007ff9b5d20000 - 0x00007ff9b5d4b000 	C:\Windows\SYSTEM32\Wldp.dll
+0x00007ff9b7fc0000 - 0x00007ff9b808d000 	C:\Windows\System32\OLEAUT32.dll
+0x00007ff9b75b0000 - 0x00007ff9b765d000 	C:\Windows\System32\SHCORE.dll
+0x00007ff9b8730000 - 0x00007ff9b878b000 	C:\Windows\System32\shlwapi.dll
+0x00007ff9b62f0000 - 0x00007ff9b6315000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ff995d40000 - 0x00007ff995d59000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\net.dll
+0x00007ff9af900000 - 0x00007ff9afa0a000 	C:\Windows\SYSTEM32\WINHTTP.dll
+0x00007ff9b5a80000 - 0x00007ff9b5aea000 	C:\Windows\system32\mswsock.dll
+0x00007ff995d20000 - 0x00007ff995d36000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\nio.dll
+0x00007ff996860000 - 0x00007ff996878000 	C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\zip.dll
+0x000000006e700000 - 0x000000006e72d000 	C:\ProgramData\libGDX-temp\libgdxUser_1933691140_GDX1_13_1\c39de338\gdx64.dll
+0x00007ff972830000 - 0x00007ff9728ab000 	C:\Users\ALUMNO\AppData\Local\Temp\lwjgl_ALUMNO\3.3.3+5\x64\lwjgl.dll
+0x00007ff972250000 - 0x00007ff9724c0000 	C:\Users\ALUMNO\AppData\Local\Temp\lwjgl_ALUMNO\3.3.3+5\x64\jemalloc.dll
+0x00007ff9721c0000 - 0x00007ff972242000 	C:\Users\ALUMNO\AppData\Local\Temp\lwjgl_ALUMNO\3.3.3+5\x64\glfw.dll
+0x00007ff995af0000 - 0x00007ff995b35000 	C:\Windows\SYSTEM32\dinput8.dll
+0x00007ff9b05f0000 - 0x00007ff9b0601000 	C:\Windows\SYSTEM32\xinput1_4.dll
+0x00007ff9b6b40000 - 0x00007ff9b6b8e000 	C:\Windows\System32\cfgmgr32.dll
+0x00007ff9b60e0000 - 0x00007ff9b6113000 	C:\Windows\SYSTEM32\DEVOBJ.dll
+0x00007ff9b3cf0000 - 0x00007ff9b3d1f000 	C:\Windows\SYSTEM32\dwmapi.dll
+0x00007ff9a1ee0000 - 0x00007ff9a2032000 	C:\Windows\SYSTEM32\inputhost.dll
+0x00007ff9b3170000 - 0x00007ff9b3262000 	C:\Windows\SYSTEM32\CoreMessaging.dll
+0x00007ff9b1cd0000 - 0x00007ff9b1e27000 	C:\Windows\SYSTEM32\wintypes.dll
+0x00007ff9af090000 - 0x00007ff9af184000 	C:\Windows\SYSTEM32\PROPSYS.dll
+0x00007ff9b2e10000 - 0x00007ff9b316b000 	C:\Windows\SYSTEM32\CoreUIComponents.dll
+0x00007ff9b55f0000 - 0x00007ff9b5623000 	C:\Windows\SYSTEM32\ntmarta.dll
+0x00007ff9b3a10000 - 0x00007ff9b3aae000 	C:\Windows\system32\uxtheme.dll
+0x00007ff9b76f0000 - 0x00007ff9b7805000 	C:\Windows\System32\MSCTF.dll
+0x00007ff971ff0000 - 0x00007ff9721b7000 	C:\Users\ALUMNO\AppData\Local\Temp\lwjgl_ALUMNO\3.3.3+5\x64\OpenAL.dll
+0x00007ff9b8b40000 - 0x00007ff9b8c6b000 	C:\Windows\System32\ole32.dll
+0x00007ff9b6eb0000 - 0x00007ff9b6f59000 	C:\Windows\System32\clbcatq.dll
+0x00007ff9b0d80000 - 0x00007ff9b0e05000 	C:\Windows\System32\MMDevApi.dll
+0x00007ff9b01e0000 - 0x00007ff9b0361000 	C:\Windows\SYSTEM32\AUDIOSES.DLL
+0x00007ff9b3ae0000 - 0x00007ff9b3af4000 	C:\Windows\SYSTEM32\resourcepolicyclient.dll
+0x00007ff998ea0000 - 0x00007ff998fc8000 	C:\Windows\SYSTEM32\opengl32.dll
+0x00007ff9adb90000 - 0x00007ff9adbbc000 	C:\Windows\SYSTEM32\GLU32.dll
+0x00007ff9aef80000 - 0x00007ff9af083000 	C:\Windows\System32\AppXDeploymentClient.dll
+0x00007ff965aa0000 - 0x00007ff966b45000 	C:\Windows\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_51f685305808e3a5\ig9icd64.dll
+0x00007ff9b4c50000 - 0x00007ff9b4d46000 	C:\Windows\system32\dxgi.dll
+0x00007ff971c30000 - 0x00007ff971d5c000 	C:\Windows\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_51f685305808e3a5\igdml64.dll
+0x00007ff99e250000 - 0x00007ff99e659000 	C:\Windows\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_51f685305808e3a5\igdgmm64.dll
+0x00007ff99a6e0000 - 0x00007ff99de74000 	C:\Windows\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_51f685305808e3a5\igc64.dll
+0x00007ff9a1830000 - 0x00007ff9a18de000 	C:\Windows\SYSTEM32\mscms.dll
+0x00007ff9a1810000 - 0x00007ff9a1821000 	C:\Windows\SYSTEM32\ColorAdapterClient.dll
+0x00007ff9b62b0000 - 0x00007ff9b62de000 	C:\Windows\SYSTEM32\USERENV.dll
+0x00007ff97af40000 - 0x00007ff97af85000 	C:\Windows\SYSTEM32\icm32.dll
+0x00007ff975040000 - 0x00007ff97509e000 	C:\Users\ALUMNO\AppData\Local\Temp\lwjgl_ALUMNO\3.3.3+5\x64\lwjgl_opengl.dll
+0x00007ff9a2040000 - 0x00007ff9a2139000 	C:\Windows\SYSTEM32\textinputframework.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.5915_none_60b4b9d171f9c7c7;C:\Users\ALUMNO\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\server;C:\ProgramData\libGDX-temp\libgdxUser_1933691140_GDX1_13_1\c39de338;C:\Users\ALUMNO\AppData\Local\Temp\lwjgl_ALUMNO\3.3.3+5\x64;C:\Windows\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_51f685305808e3a5
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Duser.country=ES -Duser.language=es -Duser.variant 
+java_command: com.cosas.estelabichos.lwjgl3.Lwjgl3Launcher
+java_class_path (initial): C:\Users\ALUMNO\Desktop\juego\lwjgl3\build\classes\java\main;C:\Users\ALUMNO\Desktop\juego\lwjgl3\build\resources\main;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-lwjgl3\1.13.1\c8d8f1c3ccd17fe2202a1d581e179c4ba0ccc45d\gdx-backend-lwjgl3-1.13.1.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-box2d-platform\1.13.1\a85f4f624bdc6f41b1f3f2f541c76d989e5b30a1\gdx-box2d-platform-1.13.1-natives-desktop.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-platform\1.13.1\8493b7d917097a6d091db2554bf0056881f96738\gdx-platform-1.13.1-natives-desktop.jar;C:\Users\ALUMNO\Desktop\juego\core\build\libs\core-1.0.0.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\com.badlogicgames.box2dlights\box2dlights\1.5\6902dbcd250c95a27973aa24a147a95b3828d348\box2dlights-1.5.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-box2d\1.13.1\5280c502b07d6e3a37bdd0460ad660f9e1c583c0\gdx-box2d-1.13.1.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.13.1\734d9a5ca877bbce0c595dbdc3165fe6a22b7a30\gdx-1.13.1.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.3\efa1eb78c5ccd840e9f329717109b5e892d72f8e\lwjgl-glfw-3.3.3.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.3\a03684c5e4b1b1dbbe0d29dbbdc27b985b6840f2\lwjgl-glfw-3.3.3-natives-linux.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.3\d9af485c32545b37dd5359b163161d42d7534dcf\lwjgl-glfw-3.3.3-natives-linux-arm32.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.3\492a0f11f85b85899a6568f07511160c1b87cd38\lwjgl-glfw-3.3.3-natives-linux-arm64.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\files-2.1\org.lwjgl\lwjgl-glfw\3.3.3\a1bf400f6bc64e6195596cb1430dafda46090751\lwjgl-glfw-3.3.3-natives-macos.jar;C:\Users\ALUMNO\.gradle\caches\modules-2\fi
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4265607168                                {product} {ergonomic}
+   size_t MaxNewSize                               = 2558525440                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4265607168                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Users\ALUMNO\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\ALUMNO\AppData\Local\Programs\Python\Python313\;C:\Users\ALUMNO\AppData\Local\Microsoft\WindowsApps;C:\Users\ALUMNO\AppData\Local\JetBrains\IntelliJ IDEA 2024.2.4\bin;;C:\Users\ALUMNO\AppData\Roaming\npm;C:\Users\ALUMNO\AppData\Local\Programs\Git\cmd
+USERNAME=ALUMNO
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+TMP=C:\Users\ALUMNO\AppData\Local\Temp
+TEMP=C:\Users\ALUMNO\AppData\Local\Temp
+
+
+
+Periodic native trim disabled
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.5915)
+OS uptime: 1 days 2:33 hours
+
+CPU: total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 94 stepping 3 microcode 0xec, cx8, cmov, fxsr, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, rtm, adx, fma, vzeroupper, clflush, clflushopt
+Processor Information for all 4 processors :
+  Max Mhz: 3192, Current Mhz: 3192, Mhz Limit: 3192
+
+Memory: 4k page, system-wide physical 16271M (9261M free)
+TotalPageFile size 18703M (AvailPageFile size 11655M)
+current process WorkingSet (physical memory assigned to process): 456M, peak: 456M
+current process commit charge ("private bytes"): 704M, peak: 705M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.15+6) for windows-amd64 JRE (17.0.15+6), built on Apr 15 2025 21:25:47 by "admin" with MS VC++ 17.7 (VS2022)
+
+END.

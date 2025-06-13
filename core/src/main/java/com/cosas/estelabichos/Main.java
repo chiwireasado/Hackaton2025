@@ -59,8 +59,9 @@ public class Main extends Game {
     Sprite aura;
     Rectangle hitBXaura;
 
-    BitmapFont font,vidas;
+    BitmapFont fontim,vidas,fontpunt;
     int puntos;
+    int temporizador;
     float tiempo;
 
 
@@ -113,6 +114,9 @@ public class Main extends Game {
             }
         }
     }
+    public void correTiempo(float segundos) {
+        temporizador -= (int) segundos;
+    }
 
     public void sumarPuntos(int cantidad) {
         puntos += cantidad;
@@ -124,12 +128,15 @@ public class Main extends Game {
         setScreen(new firstScreen());
 
         conectamos=false;
-        font=new BitmapFont();
+        fontim =new BitmapFont();
+        fontpunt=new BitmapFont();
         vidas=new BitmapFont();
-        font.getData().setScale(2);
+        fontim.getData().setScale(2);
         vidas.getData().setScale(1);
+        fontpunt.getData().setScale(2);
 
-        tiempo=Gdx.graphics.getDeltaTime();
+
+        temporizador=3000;
 
 
         enemigos=new Array<>(5);
@@ -146,7 +153,7 @@ public class Main extends Game {
 
         //todo sobre el personaje principal
         prota =new personaje(new Texture("caracol.png"));
-        prota.setTamaño(pixeles,pixeles);
+        prota.setTamaño(100,100);
 
 
         for (int i=0;i<6;i++){
@@ -177,12 +184,20 @@ public class Main extends Game {
 
 
         prota.actualizaposicion();
+        tiempo+=Gdx.graphics.getDeltaTime();
+
 
 
         posXActualprota = prota.getX();
         posYActualprota = prota.getY();
 
 
+        if (temporizador>=0){
+            correTiempo(tiempo);
+            if (temporizador<=0){
+                prota.setVidas(0);
+            }
+        }
 
 
         // movimientos
@@ -196,6 +211,10 @@ public class Main extends Game {
 
 
         crea_aura();
+
+        if (prota.getVidas()==0){
+            batch.dispose();
+        }
 
 
         if (prota.getX()<=0 || prota.getX()>=world_width-10 || prota.getY()<0 || prota.getY()>= world_height-10){
@@ -244,12 +263,11 @@ public class Main extends Game {
                 prota.forma.setPosition(-20,150);
                 auras.clear();
                 prota.setVidas(prota.getVidas()-1);
-                if (prota.getVidas()==0){
-                    batch.dispose();
-                }
             }
 
         }
+
+
 
         for (int i=0;i<auras.size-1;i++){
             auras.get(i).draw(batch);
@@ -259,17 +277,14 @@ public class Main extends Game {
                     prota.forma.setPosition(-20,150);
                     auras.clear();
                     prota.setVidas(prota.getVidas()-1);
-                    if (prota.getVidas()==0){
-                    batch.dispose();
-
-                    }
                 }
             }
-
         }
 
-        font.draw(batch, "Puntos: " + puntos, 20, Gdx.graphics.getHeight() - 20);
+        fontim.draw(batch, "Puntos: " + puntos, 20, Gdx.graphics.getHeight() - 20);
+        fontpunt.draw(batch,"Tiempo: "+temporizador,350,Gdx.graphics.getHeight() - 20);
         vidas.draw(batch,"Vidas: "+prota.getVidas(),550,Gdx.graphics.getHeight() - 20);
+
         batch.end();
 
     }
