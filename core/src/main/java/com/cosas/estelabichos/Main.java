@@ -10,7 +10,11 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.*;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
+
+import java.awt.*;
+
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends Game {
@@ -74,9 +78,6 @@ public class Main extends Game {
     final int pixeles =32;
 
 
-
-
-
     public void crea_enemigo() {
         enemigo = new enemigo(new Texture(Gdx.files.internal("bicho.png")));
         enemigo.setTamaño(50,50);
@@ -127,16 +128,17 @@ public class Main extends Game {
     public void create() {
         setScreen(new firstScreen());
 
+
         conectamos=false;
         fontim =new BitmapFont();
         fontpunt=new BitmapFont();
         vidas=new BitmapFont();
-        fontim.getData().setScale(2);
+        fontim.getData().setScale(1);
         vidas.getData().setScale(1);
-        fontpunt.getData().setScale(2);
+        fontpunt.getData().setScale(1);
 
 
-        temporizador=3000;
+        temporizador=9000;
 
 
         enemigos=new Array<>(5);
@@ -153,7 +155,7 @@ public class Main extends Game {
 
         //todo sobre el personaje principal
         prota =new personaje(new Texture("caracol.png"));
-        prota.setTamaño(100,100);
+        prota.setTamaño(50,50);
 
 
         for (int i=0;i<6;i++){
@@ -192,12 +194,6 @@ public class Main extends Game {
         posYActualprota = prota.getY();
 
 
-        if (temporizador>=0){
-            correTiempo(tiempo);
-            if (temporizador<=0){
-                prota.setVidas(0);
-            }
-        }
 
 
         // movimientos
@@ -225,8 +221,13 @@ public class Main extends Game {
             conectamos=true;
         }
         else {
-            tiempo*=1;
             conectamos=false;
+            if (temporizador>=0){
+                correTiempo(tiempo);
+                if (temporizador<=0){
+                    prota.setVidas(0);
+                }
+            }
         }
 
 
@@ -282,7 +283,7 @@ public class Main extends Game {
         }
 
         fontim.draw(batch, "Puntos: " + puntos, 20, Gdx.graphics.getHeight() - 20);
-        fontpunt.draw(batch,"Tiempo: "+temporizador,350,Gdx.graphics.getHeight() - 20);
+        fontpunt.draw(batch,"Tiempo: "+temporizador,320,Gdx.graphics.getHeight() - 20);
         vidas.draw(batch,"Vidas: "+prota.getVidas(),550,Gdx.graphics.getHeight() - 20);
 
         batch.end();
