@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.*;
@@ -14,48 +15,53 @@ import com.badlogic.gdx.utils.Array;
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends Game {
 
-    int [][]mapa ={ // mapa de 16x16 en pixeles
-            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-            {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+    int[][] mapa = { // mapa de 16x16 en pixeles
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     };
 
-    Array<Sprite> enemigos;
+    Array<enemigo> enemigos;
     Array<Sprite> auras;
-    Array<Rectangle> hitBXauras;
+    Array<Rectangle> hitBXauras, hitBXenemigos;
 
 
-
-    Texture pared,piso,prueba;
+    Texture pared, piso, prueba;
 
 
     personaje prota;
     int posXActualprota;
     int posYActualprota;
+    boolean conectamos;
 
+
+    enemigo enemigo;
 
 
     SpriteBatch batch;
-    Sprite enemigo,aura;
-    Rectangle hitBXenemigo;
+    Sprite aura;
     Rectangle hitBXaura;
+
+    BitmapFont font,vidas;
+    int puntos;
+    float tiempo;
 
 
     Camera camara;
@@ -69,19 +75,16 @@ public class Main extends Game {
 
 
 
-    public void movimiento_enemigo() {
 
-        float delta = Gdx.graphics.getDeltaTime();
-        if (mapa[(int) enemigo.getY()/pixeles][(int) enemigo.getX()/pixeles] != 0) {
-            ranX = -ranX;
-            ranY = -ranY;
-        }
-        enemigo.translate(ranX*delta, ranY* delta);
+    public void crea_enemigo() {
+        enemigo = new enemigo(new Texture(Gdx.files.internal("bicho.png")));
+        enemigo.setTamaño(50,50);
+        ranX = MathUtils.random(enemigo.getWidth(), world_width - enemigo.forma.getWidth());
+        ranY = MathUtils.random(enemigo.getHeight(), world_height - enemigo.forma.getHeight());
+        enemigo.forma.setPosition(ranX, ranY);
 
-        enemigo.setX(MathUtils.clamp(enemigo.getX(),0,world_width-hitBXenemigo.getWidth()));
-        enemigo.setY(MathUtils.clamp(enemigo.getY(),0,world_height-hitBXenemigo.getHeight()));
+        enemigos.add(enemigo);
     }
-
 
 
 
@@ -98,29 +101,41 @@ public class Main extends Game {
     }
 
     public void pon_aura_en_matriz(){
-        for (Sprite aura : auras) {
-            int pixelx = (int)(prota.getX() / pixeles);
-            int pixely = (int)(prota.getY() / pixeles);
+        int pixelx = prota.getX() / pixeles;
+        int pixely = prota.getY() / pixeles;
 
-            if (pixely >= 0 && pixely < mapa.length && pixelx >= 0 && pixelx < mapa[0].length) {
-                if (mapa[pixely][pixelx] != 1) {
-                    mapa[pixely][pixelx] = 2;
+        for (int i=0;i<auras.size;i++) {
+
+            if (pixelx >= 0 && pixelx < mapa.length && pixely >= 0 && pixely < mapa[0].length) {
+                if (mapa[pixelx][pixely] != 1) {
+                    mapa[pixelx][pixely] = 2;
                 }
             }
         }
     }
 
+    public void sumarPuntos(int cantidad) {
+        puntos += cantidad;
+    }
 
 
     @Override
     public void create() {
         setScreen(new firstScreen());
 
+        conectamos=false;
+        font=new BitmapFont();
+        vidas=new BitmapFont();
+        font.getData().setScale(2);
+        vidas.getData().setScale(1);
 
-        // multiples enemigos
+        tiempo=Gdx.graphics.getDeltaTime();
+
+
         enemigos=new Array<>(5);
         auras=new Array<>();
         hitBXauras=new Array<>();
+        hitBXenemigos=new Array<>(5);
 
 
         // si se quita esto exzplota
@@ -134,16 +149,9 @@ public class Main extends Game {
         prota.setTamaño(pixeles,pixeles);
 
 
-        // todo sobre el enemigo
-        enemigo=new Sprite(new Texture(Gdx.files.internal( "bicho.png")));
-        enemigo.setSize(50,50);
-        ranX=MathUtils.random(0,world_width-enemigo.getWidth());
-        ranY=MathUtils.random(0,world_height-enemigo.getHeight());
-        enemigo.setPosition(ranX,ranY);
-
-
-        //hitbox enemigo iniciadas
-        hitBXenemigo=new Rectangle();
+        for (int i=0;i<6;i++){
+            crea_enemigo();
+        }
 
 
         crea_aura();
@@ -154,10 +162,10 @@ public class Main extends Game {
 
 
 
-
-
         camara.update();
         batch=new SpriteBatch();
+
+
 
     }
 
@@ -167,43 +175,39 @@ public class Main extends Game {
         camara.update();
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+
         prota.actualizaposicion();
+
 
         posXActualprota = prota.getX();
         posYActualprota = prota.getY();
 
 
 
+
         // movimientos
         prota.moverse();
-        movimiento_enemigo();
-
 
 
 
         //hitbox's configuracion
         prota.hitbox.set(prota.getX(), prota.getY(), prota.forma.getWidth()/2, prota.forma.getHeight()/2);
-        hitBXenemigo.set(enemigo.getX(),enemigo.getY(),enemigo.getWidth()-15,enemigo.getHeight()-15);
 
-
-
-
-        // colision
-        if (prota.hitbox.overlaps(hitBXenemigo)) {
-            System.out.println("choco");
-            //prota.setPosition((prota.getX()-prota.getWidth()/2),(prota.getY()-prota.getHeight()/2));
-            prota.forma.setPosition(-20,150);
-        }
 
 
         crea_aura();
 
 
-        if (prota.getX()<=0 || prota.getX()>=world_width-10){
+        if (prota.getX()<=0 || prota.getX()>=world_width-10 || prota.getY()<0 || prota.getY()>= world_height-10){
             auras.clear();
+            if (!conectamos){
+                sumarPuntos(100);
+            }
+            conectamos=true;
         }
-        if (prota.getY()<0 || prota.getY()>= world_height-10){
-            auras.clear();
+        else {
+            tiempo*=1;
+            conectamos=false;
         }
 
 
@@ -214,6 +218,7 @@ public class Main extends Game {
         batch.begin();
 
         pon_aura_en_matriz();
+
 
         for (int i = 0; i < mapa.length; i++) {
             for (int j = 0; j <mapa[i].length; j++) {
@@ -229,23 +234,42 @@ public class Main extends Game {
 
 
         prota.dibujar(batch);
-        enemigo.draw(batch);
 
+        for (int i=0;i<enemigos.size-1;i++){
+            enemigos.get(i).dibujar(batch);
 
-        for (int i=0;i<auras.size-1;i++){
-            auras.get(i).draw(batch);
-            hitBXauras.get(i).setPosition(auras.get(i).getX(),auras.get(i).getY());
+            enemigos.get(i).movimiento_enemigo();
 
-            if (hitBXenemigo.overlaps(hitBXauras.get(i))) {
-                System.out.println("choco");
-                //prota.setPosition((prota.getX()-prota.getWidth()/2),(prota.getY()-prota.getHeight()/2));
+            if (enemigos.get(i).hitbox.overlaps(prota.hitbox)) {
                 prota.forma.setPosition(-20,150);
                 auras.clear();
+                prota.setVidas(prota.getVidas()-1);
+                if (prota.getVidas()==0){
+                    batch.dispose();
+                }
             }
 
         }
 
+        for (int i=0;i<auras.size-1;i++){
+            auras.get(i).draw(batch);
+            hitBXauras.get(i).setPosition(auras.get(i).getX(),auras.get(i).getY());
+            for (int j = 0; j <enemigos.size-1 ; j++) {
+                if (enemigos.get(j).hitbox.overlaps(hitBXauras.get(i))) {
+                    prota.forma.setPosition(-20,150);
+                    auras.clear();
+                    prota.setVidas(prota.getVidas()-1);
+                    if (prota.getVidas()==0){
+                    batch.dispose();
 
+                    }
+                }
+            }
+
+        }
+
+        font.draw(batch, "Puntos: " + puntos, 20, Gdx.graphics.getHeight() - 20);
+        vidas.draw(batch,"Vidas: "+prota.getVidas(),550,Gdx.graphics.getHeight() - 20);
         batch.end();
 
     }

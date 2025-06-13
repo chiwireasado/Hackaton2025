@@ -21,6 +21,7 @@ public class personaje{
     private float velocidad;
     Sprite forma;
     Rectangle hitbox;
+    private int vidas;
 
     personaje(Texture piel) {
         width=0;
@@ -30,6 +31,7 @@ public class personaje{
         forma = new Sprite(piel);
         hitbox=new Rectangle(getX(), getY(),width,height);
         setVelocidad(250);
+        setVidas(3);
     }
 
     public void moverse(){
@@ -37,21 +39,21 @@ public class personaje{
         float speedY=0;
         float delta= Gdx.graphics.getDeltaTime();
 
-        if (Gdx.input.isKeyPressed(Input.Keys.W)){
+        if (Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)){
             speedY=250;
             speedX=0;
             forma.translateY(speedY*delta);
         }
-        else if (Gdx.input.isKeyPressed(Input.Keys.S)){
+        else if (Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)){
             speedY=-250;
             forma.translateY(speedY*delta);
         }
-        else if (Gdx.input.isKeyPressed(Input.Keys.A)){
+        else if (Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)){
             speedX=-250;
             forma.translateX(speedX * delta);
             forma.flip(true,false);
         }
-        else if (Gdx.input.isKeyPressed(Input.Keys.D)){
+        else if (Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
             forma.flip(false,false);
             speedX=250;
             forma.translateX(speedX * delta);
@@ -114,4 +116,11 @@ public class personaje{
     }
 
 
+    public int getVidas() {
+        return vidas;
+    }
+
+    public void setVidas(int vidas) {
+        this.vidas = vidas;
+    }
 }
